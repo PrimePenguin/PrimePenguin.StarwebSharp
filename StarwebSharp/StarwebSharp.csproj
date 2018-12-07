@@ -5,6 +5,15 @@
     <RootNamespace>StarwebSharp</RootNamespace>
     <Version>0.0.1</Version>
   </PropertyGroup>
+  <PropertyGroup>
+    <Description>StarwebSharp is a C# and .NET library that helps developers easily authenticate with and manage Starweb stores.</Description>
+    <Authors>Ajay Kumar</Authors>
+    <Copyright>Prime Penguin</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/PrimePenguin/PrimePenguin.StarwebSharp/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/PrimePenguin/PrimePenguin.StarwebSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PrimePenguin/PrimePenguin.StarwebSharp</RepositoryUrl>
+    <PackageTags>starweb,ecommerce</PackageTags>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="microsoft.extensions.primitives" Version="1.1.0" />
     <PackageReference Include="newtonsoft.json" Version="10.0.1" />
