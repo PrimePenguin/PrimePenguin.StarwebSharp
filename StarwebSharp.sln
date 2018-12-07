@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarwebSharp", "StarwebSharp\StarwebSharp.csproj", "{833EC12B-956D-427B-A598-2F12B84589EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2A84FA5-9EA9-48EB-8A1C-EFDAEEC7D3FD}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		readme.md = readme.md
+	EndProjectSection
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{833EC12B-956D-427B-A598-2F12B84589EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833EC12B-956D-427B-A598-2F12B84589EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833EC12B-956D-427B-A598-2F12B84589EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833EC12B-956D-427B-A598-2F12B84589EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C7FE82-999C-4972-8AE5-7F42A20934BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C7FE82-999C-4972-8AE5-7F42A20934BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C7FE82-999C-4972-8AE5-7F42A20934BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C7FE82-999C-4972-8AE5-7F42A20934BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECC5815A-569D-4061-AE47-8D036673C733}
+	EndGlobalSection
+EndGlobal
