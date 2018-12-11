@@ -13,6 +13,7 @@
     <PackageProjectUrl>https://github.com/PrimePenguin/PrimePenguin.StarwebSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/PrimePenguin/PrimePenguin.StarwebSharp</RepositoryUrl>
     <PackageTags>starweb,ecommerce</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="microsoft.extensions.primitives" Version="1.1.0" />
