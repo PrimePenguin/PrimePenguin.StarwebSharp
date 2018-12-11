@@ -86,6 +86,24 @@ namespace StarwebSharp.Services.ProductVariant
             return await ExecuteRequestAsync<ProductVariantModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="ProductVariantModel"/>.
+        /// </summary>
+        /// <param name="productId">The id of the product.</param>
+        /// <param name="variantId">Id of the object being updated.</param>
+        /// <param name="variant">The <see cref="ProductVariantCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="ProductVariantModel"/>.</returns>
+        public virtual async Task<ProductVariantModel> PatchAsync(int productId, int variantId, ProductVariantCreateUpdateModel variant)
+        {
+            var req = PrepareRequest($"products/{productId}/variants/{variantId}");
+            var body = variant.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<ProductVariantModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a variant with the given Id.
         /// </summary>

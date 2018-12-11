@@ -70,6 +70,23 @@ namespace StarwebSharp.Services.Webhook
             return await ExecuteRequestAsync<WebHookModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="WebHookModel"/>.
+        /// </summary>
+        /// <param name="webhookId">Id of the object being updated.</param>
+        /// <param name="webhook">The <see cref="WebHookModel"/> to update.</param>
+        /// <returns>The updated <see cref="WebHookModel"/>.</returns>
+        public virtual async Task<WebHookModel> PatchAsync(int webhookId, WebHookModel webhook)
+        {
+            var req = PrepareRequest($"web-hooks/{webhookId}");
+            var body = webhook.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<WebHookModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a webhook with the given Id.
         /// </summary>

@@ -82,6 +82,24 @@ namespace StarwebSharp.Services.Customer
             return await ExecuteRequestAsync<CustomerModel>(req, HttpMethod.Put, content, "data");
         }
 
+
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="Customer"/>.
+        /// </summary>
+        /// <param name="customerId">Id of the object being updated.</param>
+        /// <param name="customer">The <see cref="CustomerCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="CustomerModel"/>.</returns>
+        public virtual async Task<CustomerModel> PatchAsync(int customerId, CustomerCreateUpdateModel customer)
+        {
+            var req = PrepareRequest($"customers/{customerId}");
+            var body = customer.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<CustomerModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a customer with the given Id.
         /// </summary>

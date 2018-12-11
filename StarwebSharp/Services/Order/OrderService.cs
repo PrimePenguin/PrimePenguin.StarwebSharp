@@ -82,6 +82,23 @@ namespace StarwebSharp.Services.Order
             return await ExecuteRequestAsync<OrderModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="OrderModel"/>.
+        /// </summary>
+        /// <param name="orderId">Id of the object being updated.</param>
+        /// <param name="order">The <see cref="OrderCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="OrderModel"/>.</returns>
+        public virtual async Task<OrderModel> PatchAsync(int orderId, OrderCreateUpdateModel order)
+        {
+            var req = PrepareRequest($"orders/{orderId}");
+            var body = order.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<OrderModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a order with the given Id.
         /// </summary>

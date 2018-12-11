@@ -70,6 +70,23 @@ namespace StarwebSharp.Services.ProductManufacturer
             return await ExecuteRequestAsync<ProductManufacturerModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        // <summary>
+        /// Updates the given <see cref="ProductManufacturerModel"/>.
+        /// </summary>
+        /// <param name="manufacturerId">Id of the object being updated.</param>
+        /// <param name="product">The <see cref="ProductManufacturerModel"/> to update.</param>
+        /// <returns>The updated <see cref="ProductManufacturerModel"/>.</returns>
+        public virtual async Task<ProductManufacturerModel> PatchAsync(int manufacturerId, ProductManufacturerModel product)
+        {
+            var req = PrepareRequest($"product-manufacturers/{manufacturerId}");
+            var body = product.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<ProductManufacturerModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a product manufacturer with the given Id.
         /// </summary>

@@ -69,6 +69,23 @@ namespace StarwebSharp.Services.ProductStockStatus
             return await ExecuteRequestAsync<ProductStockStatusModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="ProductStockStatusModel"/>.
+        /// </summary>
+        /// <param name="stockStatusId">Id of the object being updated.</param>
+        /// <param name="order">The <see cref="ProductStockStatusCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="ProductStockStatusModel"/>.</returns>
+        public virtual async Task<ProductStockStatusModel> PatchAsync(int stockStatusId, ProductStockStatusCreateUpdateModel order)
+        {
+            var req = PrepareRequest($"product-stock-statuses/{stockStatusId}");
+            var body = order.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<ProductStockStatusModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a stock status with the given Id.
         /// </summary>

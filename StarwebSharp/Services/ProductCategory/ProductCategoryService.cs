@@ -82,6 +82,23 @@ namespace StarwebSharp.Services.ProductCategory
             return await ExecuteRequestAsync<ProductCategoryModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="ProductCategoryModel"/>.
+        /// </summary>
+        /// <param name="categoryId">Id of the object being updated.</param>
+        /// <param name="product">The <see cref="ProductCategoryCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="ProductCategoryModel"/>.</returns>
+        public virtual async Task<ProductCategoryModel> PatchAsync(int categoryId, ProductCategoryCreateUpdateModel product)
+        {
+            var req = PrepareRequest($"product-categories/{categoryId}");
+            var body = product.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<ProductCategoryModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a product category with the given Id.
         /// </summary>

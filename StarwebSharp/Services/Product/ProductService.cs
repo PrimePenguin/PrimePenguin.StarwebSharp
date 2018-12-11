@@ -82,6 +82,23 @@ namespace StarwebSharp.Services.Product
             return await ExecuteRequestAsync<ProductModel>(req, HttpMethod.Put, content, "data");
         }
 
+#if NETCORE
+        /// <summary>
+        /// Updates the given <see cref="ProductModel"/>.
+        /// </summary>
+        /// <param name="productId">Id of the object being updated.</param>
+        /// <param name="product">The <see cref="ProductCreateUpdateModel"/> to update.</param>
+        /// <returns>The updated <see cref="ProductModel"/>.</returns>
+        public virtual async Task<ProductModel> PatchAsync(int productId, ProductCreateUpdateModel product)
+        {
+            var req = PrepareRequest($"products/{productId}");
+            var body = product.ToDictionary();
+            var content = new JsonContent(body);
+
+            return await ExecuteRequestAsync<ProductModel>(req, HttpMethod.Patch, content, "data");
+        }
+#endif
+
         /// <summary>
         /// Deletes a product with the given Id.
         /// </summary>
