@@ -49,3 +49,4 @@ var service = new ProductService(myStarwebUrl, shopAccessToken);
 - ShippingTrackingType
 - Shop
 - Webhook
+- Media Files

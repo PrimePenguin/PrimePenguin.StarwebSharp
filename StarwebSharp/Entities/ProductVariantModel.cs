@@ -73,7 +73,7 @@ namespace StarwebSharp.Entities
 
         /// <summary>A collection of product variant attribute values</summary>
         [JsonProperty("attributeValues", NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<ProductVariantAttributeValueModelCollection> AttributeValues { get; set; } =
-            new Collection<ProductVariantAttributeValueModelCollection>();
+        public ProductVariantAttributeValueModelCollection AttributeValues { get; set; } =
+            new ProductVariantAttributeValueModelCollection();
     }
 }

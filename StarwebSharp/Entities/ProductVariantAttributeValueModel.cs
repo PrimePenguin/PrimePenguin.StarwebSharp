@@ -26,7 +26,7 @@ namespace StarwebSharp.Entities
         /// <summary>A collection of attribute value languages</summary>
         [JsonProperty("languages",
             NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<ProductVariantAttributeValueLanguageModel> Languages { get; set; } =
-            new Collection<ProductVariantAttributeValueLanguageModel>();
+        public ProductVariantAttributeValueLanguageModelCollection Languages { get; set; } =
+            new ProductVariantAttributeValueLanguageModelCollection();
     }
 }
