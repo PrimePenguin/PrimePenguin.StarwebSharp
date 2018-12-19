@@ -43,6 +43,10 @@ namespace StarwebSharp.Services.Webhook
 
         /// <summary>
         /// Creates a new <see cref="WebHookModel"/> on the store.
+        /// Please note that you should always use HTTPS when adding Webhooks in order to ensure security.
+        /// Also, there is no way to validate that the request originate from Starweb, so it is important that you always validate these event with an API call.
+        /// For example, if you receive a Webhook event regarding an order status update, validate this and retrieve the actual data of that order using a GET to /api/v2/orders/{order-id}
+        /// All Webhook events will retry up to 10 times or until they get a 20x response. If they don't get a 20x response they will retry again after 30 min.
         /// </summary>
         /// <param name="webhook">A new <see cref="WebHookModel"/>. Id should be set to null.</param>
         /// <returns>The new <see cref="WebHookModel"/>.</returns>
@@ -57,6 +61,10 @@ namespace StarwebSharp.Services.Webhook
 
         /// <summary>
         /// Updates the given <see cref="WebHookModel"/>.
+        /// Please note that you should always use HTTPS when adding Webhooks in order to ensure security.
+        /// Also, there is no way to validate that the request originate from Starweb, so it is important that you always validate these event with an API call.
+        /// For example, if you receive a Webhook event regarding an order status update, validate this and retrieve the actual data of that order using a GET to /api/v2/orders/{order-id}
+        /// All Webhook events will retry up to 10 times or until they get a 20x response. If they don't get a 20x response they will retry again after 30 min.
         /// </summary>
         /// <param name="webhookId">Id of the object being updated.</param>
         /// <param name="webhook">The <see cref="WebHookModel"/> to update.</param>
@@ -73,6 +81,10 @@ namespace StarwebSharp.Services.Webhook
 #if NETCORE
         /// <summary>
         /// Updates the given <see cref="WebHookModel"/>.
+        /// Please note that you should always use HTTPS when adding Webhooks in order to ensure security.
+        /// Also, there is no way to validate that the request originate from Starweb, so it is important that you always validate these event with an API call.
+        /// For example, if you receive a Webhook event regarding an order status update, validate this and retrieve the actual data of that order using a GET to /api/v2/orders/{order-id}
+        /// All Webhook events will retry up to 10 times or until they get a 20x response. If they don't get a 20x response they will retry again after 30 min.
         /// </summary>
         /// <param name="webhookId">Id of the object being updated.</param>
         /// <param name="webhook">The <see cref="WebHookModel"/> to update.</param>

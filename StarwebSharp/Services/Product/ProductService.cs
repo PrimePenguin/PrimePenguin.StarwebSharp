@@ -36,6 +36,19 @@ namespace StarwebSharp.Services.Product
         }
 
         /// <summary>
+        /// Count products.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<int> CountAsync()
+        {
+            var req = PrepareRequest("products");
+            var filter = new ProductFilter { Page = 1000 };
+            req.QueryParams.AddRange(filter.ToParameters());
+            var productMeta = await ExecuteRequestAsync<ProductModelCollection>(req, HttpMethod.Get, rootElement: "");
+            return productMeta.Meta.Pagination.Total.GetValueOrDefault(0);
+        }
+
+        /// <summary>
         /// Retrieves the <see cref="ProductModel"/> with the given id.
         /// </summary>
         /// <param name="productId">The id of the product to retrieve.</param>

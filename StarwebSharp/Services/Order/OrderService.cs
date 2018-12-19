@@ -36,6 +36,19 @@ namespace StarwebSharp.Services.Order
         }
 
         /// <summary>
+        /// Count orders
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<int> CountAsync()
+        {
+            var req = PrepareRequest("orders");
+            var filter = new OrderFilter() { Page = 1000 };
+            req.QueryParams.AddRange(filter.ToParameters());
+            var orderMeta = await ExecuteRequestAsync<OrderModelCollection>(req, HttpMethod.Get, rootElement: "");
+            return orderMeta.Meta.Pagination.Total.GetValueOrDefault(0);
+        }
+
+        /// <summary>
         /// Retrieves the <see cref="OrderModel"/> with the given id.
         /// </summary>
         /// <param name="orderId">The id of the order to retrieve.</param>

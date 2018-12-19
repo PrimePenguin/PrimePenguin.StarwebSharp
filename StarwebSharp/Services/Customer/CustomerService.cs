@@ -36,6 +36,19 @@ namespace StarwebSharp.Services.Customer
         }
 
         /// <summary>
+        /// Count customers.
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<int> CountAsync()
+        {
+            var req = PrepareRequest("customers");
+            var filter = new CustomerFilter { Page = 1000 };
+            req.QueryParams.AddRange(filter.ToParameters());
+            var customerMeta = await ExecuteRequestAsync<CustomerModelCollection>(req, HttpMethod.Get, rootElement: "");
+            return customerMeta.Meta.Pagination.Total.GetValueOrDefault(0);
+        }
+
+        /// <summary>
         /// Retrieves the <see cref="CustomerModel"/> with the given id.
         /// </summary>
         /// <param name="customerId">The id of the customer to retrieve.</param>
