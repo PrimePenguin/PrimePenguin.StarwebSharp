@@ -19,7 +19,7 @@ namespace StarwebSharp.Services.Product
 
         /// <summary>The visibility of this product. Supported values are: hidden, visible, pricelists</summary>
         [JsonProperty("visibility", NullValueHandling = NullValueHandling.Ignore)]
-        public string Visibility { get; set; } = "hidden";
+        public string Visibility { get; set; } = "visible";
 
         /// <summary>A valid URL to a web page with more information for this product</summary>
         [JsonProperty("moreInfoUrl", NullValueHandling = NullValueHandling.Ignore)]

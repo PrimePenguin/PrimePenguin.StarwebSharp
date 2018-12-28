@@ -15,6 +15,6 @@ namespace StarwebSharp.Services.OrderStatus
         public bool ShouldSendEmail { get; set; }
 
         [JsonProperty("languages", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<OrderStatusLanguageModel> Languages { get; set; } = new List<OrderStatusLanguageModel>();
+        public IEnumerable<OrderStatusLanguageModel> Languages { get; set; }
     }
 }

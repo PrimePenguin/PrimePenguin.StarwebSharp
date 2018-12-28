@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using StarwebSharp.Entities;
@@ -64,17 +63,14 @@ namespace StarwebSharp.Services.ProductVariant
         ///     the product´s hasSeveralVariants field is set to true
         /// </summary>
         [JsonProperty("attributeValueLinks", NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<int> AttributeValueLinks { get; set; } =
-            new Collection<int>();
+        public ICollection<int> AttributeValueLinks { get; set; }
 
         /// <summary>A collection of product variant prices</summary>
         [JsonProperty("prices", NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<ProductVariantPriceModel> Prices { get; set; } =
-            new Collection<ProductVariantPriceModel>();
+        public ICollection<ProductVariantPriceModel> Prices { get; set; }
 
         /// <summary>A collection of product variant attribute values</summary>
         [JsonProperty("attributeValues", NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<ProductVariantAttributeValueModel> AttributeValues { get; set; } =
-            new Collection<ProductVariantAttributeValueModel>();
+        public ICollection<ProductVariantAttributeValueModel> AttributeValues { get; set; }
     }
 }

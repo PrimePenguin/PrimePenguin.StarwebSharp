@@ -32,7 +32,6 @@ namespace StarwebSharp.Services.ProductStockStatus
 
         [JsonProperty("languages",
             NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<ProductStockStatusLanguageModel> Languages { get; set; } =
-            new Collection<ProductStockStatusLanguageModel>();
+        public ICollection<ProductStockStatusLanguageModel> Languages { get; set; }
     }
 }
