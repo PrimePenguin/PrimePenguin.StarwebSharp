@@ -35,6 +35,7 @@ namespace StarwebSharp.Services.Order
             return await ExecuteRequestAsync<OrderModelCollection>(req, HttpMethod.Get, rootElement: "");
         }
 
+
         /// <summary>
         /// Count orders
         /// </summary>
@@ -47,6 +48,7 @@ namespace StarwebSharp.Services.Order
             var orderMeta = await ExecuteRequestAsync<OrderModelCollection>(req, HttpMethod.Get, rootElement: "");
             return orderMeta.Meta.Pagination.Total.GetValueOrDefault(0);
         }
+
 
         /// <summary>
         /// Retrieves the <see cref="OrderModel"/> with the given id.
@@ -66,6 +68,7 @@ namespace StarwebSharp.Services.Order
             return await ExecuteRequestAsync<OrderModel>(req, HttpMethod.Get, rootElement: "data");
         }
 
+
         /// <summary>
         /// Creates a new <see cref="OrderModel"/> on the store.
         /// </summary>
@@ -79,6 +82,8 @@ namespace StarwebSharp.Services.Order
 
             return await ExecuteRequestAsync<OrderModel>(req, HttpMethod.Post, content, "data");
         }
+
+
 
         /// <summary>
         /// Updates the given <see cref="OrderModel"/>.
@@ -111,6 +116,8 @@ namespace StarwebSharp.Services.Order
             return await ExecuteRequestAsync<OrderModel>(req, HttpMethod.Patch, content, "data");
         }
 #endif
+
+
 
         /// <summary>
         /// Deletes a order with the given Id.

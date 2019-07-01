@@ -40,6 +40,7 @@ namespace StarwebSharp.Services.OrderStatus
             return await ExecuteRequestAsync<OrderStatusModel>(req, HttpMethod.Get, rootElement: "data");
         }
 
+
         /// <summary>
         /// Creates a new <see cref="OrderStatusModel"/> on the store.
         /// </summary>
