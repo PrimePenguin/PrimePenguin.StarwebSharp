@@ -18,7 +18,7 @@ skip_commits:
 deploy:
 - provider: NuGet
   api_key:
-    secure: CI7JYen03u7jlnOZgoIZ+UIvynvYpNy2CeLjLS0Sit2krWUbcq53Nfov8BkVNrzm
+    secure: rK5xep53zRlIo901nw7ZVS3Z7S2hfeVdYR2EzWcy04LoKTnPIC5AN4VJ/xH87aNT
   on:
     branch: master
     appveyor_repo_tag: true
