@@ -7,8 +7,10 @@ namespace StarwebSharp.Entities
     {
         [JsonProperty("eventId", NullValueHandling = NullValueHandling.Ignore)]
         public string EventId { get; set; }
+
         [JsonProperty("shopIdCode", NullValueHandling = NullValueHandling.Ignore)]
         public string ShopIdCode { get; set; }
+
         [JsonProperty("eventTimeStamp", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime EventTimeStamp { get; set; }
     }

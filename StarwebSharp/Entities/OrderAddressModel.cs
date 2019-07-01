@@ -21,7 +21,5 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("paymentMethodDelivery", NullValueHandling = NullValueHandling.Ignore)]
         public AddressModel PaymentMethodDelivery { get; set; }
-
-
     }
 }

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace StarwebSharp.Entities
 {
-    public partial class ProductBundleProductPriceModel
+    public class ProductBundleProductPriceModel
     {
         /// <summary>The pricelist this price is for</summary>
         [JsonProperty("pricelistId", NullValueHandling = NullValueHandling.Ignore)]
@@ -13,7 +13,5 @@ namespace StarwebSharp.Entities
         [JsonProperty("specialPriceExVat", NullValueHandling = NullValueHandling.Ignore)]
         [Range(0D, int.MaxValue)]
         public double? SpecialPriceExVat { get; set; }
-
-
     }
 }

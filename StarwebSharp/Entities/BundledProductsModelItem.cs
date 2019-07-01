@@ -2,11 +2,9 @@
 
 namespace StarwebSharp.Entities
 {
-    public partial class BundledProductsModelItem
+    public class BundledProductsModelItem
     {
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
         public BundledProductsModel Data { get; set; }
-
-
     }
 }

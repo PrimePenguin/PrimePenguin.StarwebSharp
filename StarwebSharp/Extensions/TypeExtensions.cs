@@ -15,10 +15,7 @@ namespace StarwebSharp.Extensions
             var info = type.GetTypeInfo();
             var props = info.DeclaredProperties.ToList();
 
-            if (info.BaseType != null)
-            {
-                props.AddRange(info.BaseType.GetAllDeclaredProperties());
-            }
+            if (info.BaseType != null) props.AddRange(info.BaseType.GetAllDeclaredProperties());
 
             return props;
         }

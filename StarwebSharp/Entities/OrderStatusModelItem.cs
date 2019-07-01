@@ -6,6 +6,5 @@ namespace StarwebSharp.Entities
     {
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
         public OrderStatusModel Data { get; set; }
-
     }
 }

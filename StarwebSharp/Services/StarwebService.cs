@@ -15,18 +15,13 @@ namespace StarwebSharp.Services
     {
         private static IRequestExecutionPolicy _GlobalExecutionPolicy = new DefaultRequestExecutionPolicy();
 
-        private static JsonSerializer _Serializer = new JsonSerializer { DateParseHandling = DateParseHandling.DateTimeOffset };
-
-        private static HttpClient _Client { get; } = new HttpClient();
+        private static readonly JsonSerializer _Serializer = new JsonSerializer
+            {DateParseHandling = DateParseHandling.DateTimeOffset};
 
         private IRequestExecutionPolicy _ExecutionPolicy;
 
-        protected Uri _ShopUri { get; set; }
-
-        protected string _AccessToken { get; set; }
-
         /// <summary>
-        /// Creates a new instance of <see cref="StarwebService" />.
+        ///     Creates a new instance of <see cref="StarwebService" />.
         /// </summary>
         /// <param name="myStarwebUrl">The shop's *.myStarweb.com URL.</param>
         /// <param name="shopAccessToken">An API access token for the shop.</param>
@@ -40,12 +35,19 @@ namespace StarwebSharp.Services
             _ExecutionPolicy = _GlobalExecutionPolicy ?? new DefaultRequestExecutionPolicy();
         }
 
+        private static HttpClient _Client { get; } = new HttpClient();
+
+        protected Uri _ShopUri { get; set; }
+
+        protected string _AccessToken { get; set; }
+
         /// <summary>
-        /// Attempts to build a shop API <see cref="Uri"/> for the given shop. Will throw a <see cref="StarwebException"/> if the URL cannot be formatted.
+        ///     Attempts to build a shop API <see cref="Uri" /> for the given shop. Will throw a <see cref="StarwebException" /> if
+        ///     the URL cannot be formatted.
         /// </summary>
         /// <param name="myStarwebUrl">The shop's *.starwebserver.se URL.</param>
         /// <exception cref="StarwebException">Thrown if the given URL cannot be converted into a well-formed URI.</exception>
-        /// <returns>The shop's API <see cref="Uri"/>.</returns>
+        /// <returns>The shop's API <see cref="Uri" />.</returns>
         public static Uri BuildShopUri(string myStarwebUrl)
         {
             if (Uri.IsWellFormedUriString(myStarwebUrl, UriKind.Absolute) == false)
@@ -53,9 +55,8 @@ namespace StarwebSharp.Services
                 //Starweb typically returns the shop URL without a scheme. If the user is storing that as-is, the uri will not be well formed.
                 //Try to fix that by adding a scheme and checking again.
                 if (Uri.IsWellFormedUriString("https://" + myStarwebUrl, UriKind.Absolute) == false)
-                {
-                    throw new StarwebException($"The given {nameof(myStarwebUrl)} cannot be converted into a well-formed URI.");
-                }
+                    throw new StarwebException(
+                        $"The given {nameof(myStarwebUrl)} cannot be converted into a well-formed URI.");
 
                 myStarwebUrl = "https://" + myStarwebUrl;
             }
@@ -70,8 +71,8 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Sets the execution policy for this instance only. This policy will always be used over the global execution policy.
-        /// The instance will revert back to the global execution policy if you pass null to this method.
+        ///     Sets the execution policy for this instance only. This policy will always be used over the global execution policy.
+        ///     The instance will revert back to the global execution policy if you pass null to this method.
         /// </summary>
         public void SetExecutionPolicy(IRequestExecutionPolicy executionPolicy)
         {
@@ -80,7 +81,8 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Sets the global execution policy for all *new* instances. Current instances are unaffected, but you can call .SetExecutionPolicy on them.
+        ///     Sets the global execution policy for all *new* instances. Current instances are unaffected, but you can call
+        ///     .SetExecutionPolicy on them.
         /// </summary>
         public static void SetGlobalExecutionPolicy(IRequestExecutionPolicy globalExecutionPolicy)
         {
@@ -100,16 +102,14 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Prepares a request to the path and appends the shop's access token header if applicable.
+        ///     Prepares a request to the path and appends the shop's access token header if applicable.
         /// </summary>
-        protected CloneableRequestMessage PrepareRequestMessage(RequestUri uri, HttpMethod method, HttpContent content = null)
+        protected CloneableRequestMessage PrepareRequestMessage(RequestUri uri, HttpMethod method,
+            HttpContent content = null)
         {
             var msg = new CloneableRequestMessage(uri.ToUri(), method, content);
 
-            if (!string.IsNullOrEmpty(_AccessToken))
-            {
-                msg.Headers.Add("Authorization", $"Bearer {_AccessToken}");
-            }
+            if (!string.IsNullOrEmpty(_AccessToken)) msg.Headers.Add("Authorization", $"Bearer {_AccessToken}");
 
             msg.Headers.Add("Accept", "application/json");
 
@@ -117,17 +117,18 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Executes a request and returns a JToken for querying. Throws an exception when the response is invalid.
-        /// Use this method when the expected response is a single line or simple object that doesn't warrant its own class.
+        ///     Executes a request and returns a JToken for querying. Throws an exception when the response is invalid.
+        ///     Use this method when the expected response is a single line or simple object that doesn't warrant its own class.
         /// </summary>
         /// <remarks>
-        /// This method will automatically dispose the <paramref name="baseClient"/> and <paramref name="content" /> when finished.
+        ///     This method will automatically dispose the <paramref name="baseClient" /> and <paramref name="content" /> when
+        ///     finished.
         /// </remarks>
         protected async Task<JToken> ExecuteRequestAsync(RequestUri uri, HttpMethod method, HttpContent content = null)
         {
             using (var baseRequestMessage = PrepareRequestMessage(uri, method, content))
             {
-                var policyResult = await _ExecutionPolicy.Run(baseRequestMessage, async (requestMessage) =>
+                var policyResult = await _ExecutionPolicy.Run(baseRequestMessage, async requestMessage =>
                 {
                     var request = _Client.SendAsync(requestMessage);
 
@@ -141,10 +142,7 @@ namespace StarwebSharp.Services
                         JToken jtoken = null;
 
                         // Don't parse the result when the request was Delete.
-                        if (baseRequestMessage.Method != HttpMethod.Delete)
-                        {
-                            jtoken = JToken.Parse(rawResult);
-                        }
+                        if (baseRequestMessage.Method != HttpMethod.Delete) jtoken = JToken.Parse(rawResult);
 
                         return new RequestResult<JToken>(response, jtoken, rawResult);
                     }
@@ -155,17 +153,18 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Executes a request and returns the given type. Throws an exception when the response is invalid.
-        /// Use this method when the expected response is a single line or simple object that doesn't warrant its own class.
+        ///     Executes a request and returns the given type. Throws an exception when the response is invalid.
+        ///     Use this method when the expected response is a single line or simple object that doesn't warrant its own class.
         /// </summary>
         /// <remarks>
-        /// This method will automatically dispose the <paramref name="baseRequestMessage" /> when finished.
+        ///     This method will automatically dispose the <paramref name="baseRequestMessage" /> when finished.
         /// </remarks>
-        protected async Task<T> ExecuteRequestAsync<T>(RequestUri uri, HttpMethod method, HttpContent content = null, string rootElement = null) where T : new()
+        protected async Task<T> ExecuteRequestAsync<T>(RequestUri uri, HttpMethod method, HttpContent content = null,
+            string rootElement = null) where T : new()
         {
             using (var baseRequestMessage = PrepareRequestMessage(uri, method, content))
             {
-                var policyResult = await _ExecutionPolicy.Run<T>(baseRequestMessage, async (requestMessage) =>
+                var policyResult = await _ExecutionPolicy.Run(baseRequestMessage, async requestMessage =>
                 {
                     var request = _Client.SendAsync(requestMessage);
 
@@ -192,18 +191,15 @@ namespace StarwebSharp.Services
         }
 
         /// <summary>
-        /// Checks a response for exceptions or invalid status codes. Throws an exception when necessary.
+        ///     Checks a response for exceptions or invalid status codes. Throws an exception when necessary.
         /// </summary>
         /// <param name="response">The response.</param>
         public static void CheckResponseExceptions(HttpResponseMessage response, string rawResponse)
         {
-            int statusCode = (int)response.StatusCode;
+            var statusCode = (int) response.StatusCode;
 
             // No error if response was between 200 and 300.
-            if (statusCode >= 200 && statusCode < 300)
-            {
-                return;
-            }
+            if (statusCode >= 200 && statusCode < 300) return;
 
             //var requestIdHeader = response.Headers.FirstOrDefault(h => h.Key.Equals("X-Request-Id", StringComparison.OrdinalIgnoreCase));
             //string requestId = requestIdHeader.Value?.FirstOrDefault();
@@ -226,26 +222,20 @@ namespace StarwebSharp.Services
             //}
 
             var error = ParseErrorJson(rawResponse);
-            string message = $"Response did not indicate success. Status: {(int)code} {response.ReasonPhrase}.";
+            var message = $"Response did not indicate success. Status: {(int) code} {response.ReasonPhrase}.";
 
-            if (error == null)
-            {
-                throw new StarwebException(code, $"{(int)code} {response.ReasonPhrase}", message);
-            }
+            if (error == null) throw new StarwebException(code, $"{(int) code} {response.ReasonPhrase}", message);
 
             throw new StarwebException(code, error.Error, error.ErrorDescription);
         }
 
         /// <summary>
-        /// Parses a JSON string for Starweb API errors.
+        ///     Parses a JSON string for Starweb API errors.
         /// </summary>
         /// <returns>Returns null if the JSON could not be parsed into an error.</returns>
         public static ErrorModel ParseErrorJson(string json)
         {
-            if (string.IsNullOrEmpty(json))
-            {
-                return null;
-            }
+            if (string.IsNullOrEmpty(json)) return null;
 
             try
             {
@@ -258,6 +248,7 @@ namespace StarwebSharp.Services
                     var description = parsed["error_description"].Value<string>();
                     return new ErrorModel(error, description);
                 }
+
                 return null;
             }
             catch (Exception e)

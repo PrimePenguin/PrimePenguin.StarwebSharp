@@ -19,7 +19,8 @@ namespace StarwebSharp.Entities
 
         [EnumMember(Value = "order-deleted")] OrderDeleted = 5,
 
-        [EnumMember(Value = "order-status-changed")] OrderStatusChanged = 6,
+        [EnumMember(Value = "order-status-changed")]
+        OrderStatusChanged = 6,
 
         [EnumMember(Value = "shop-opened")] ShopOpened = 7,
 

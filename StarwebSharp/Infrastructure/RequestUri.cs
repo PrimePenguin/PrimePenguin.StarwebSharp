@@ -6,12 +6,12 @@ namespace StarwebSharp.Infrastructure
 {
     public class RequestUri
     {
+        private readonly Uri Url;
+
         public RequestUri(Uri uri)
         {
             Url = uri;
         }
-
-        private Uri Url;
 
         public Dictionary<string, object> QueryParams { get; } = new Dictionary<string, object>();
 
@@ -30,6 +30,9 @@ namespace StarwebSharp.Infrastructure
             return ub.Uri;
         }
 
-        public override string ToString() => ToUri().ToString();
+        public override string ToString()
+        {
+            return ToUri().ToString();
+        }
     }
 }

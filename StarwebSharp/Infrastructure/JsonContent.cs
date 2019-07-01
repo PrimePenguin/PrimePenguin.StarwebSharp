@@ -7,17 +7,17 @@ namespace StarwebSharp.Infrastructure
 {
     public class JsonContent : ByteArrayContent
     {
-        private object Data { get; set; }
-
         public JsonContent(object data) : base(ToBytes(data))
         {
             Data = data;
             Headers.ContentType = new MediaTypeHeaderValue("application/json");
         }
 
+        private object Data { get; }
+
         private static byte[] ToBytes(object data)
         {
-            var rawData = JsonConvert.SerializeObject(data, new JsonSerializerSettings()
+            var rawData = JsonConvert.SerializeObject(data, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore
             });

@@ -7,47 +7,40 @@ using System.Runtime.Serialization;
 namespace StarwebSharp.Extensions
 {
     /// <summary>
-    /// Enum Extension Method
+    ///     Enum Extension Method
     /// </summary>
     public static class EnumExtensions
     {
         /// <summary>
-        /// Reads and uses the enum's <see cref="EnumMemberAttribute"/> for serialization.
+        ///     Reads and uses the enum's <see cref="EnumMemberAttribute" /> for serialization.
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         public static string ToSerializedString(this Enum input)
         {
-            string name = input.ToString();
+            var name = input.ToString();
             var info = input.GetType().GetTypeInfo().DeclaredMembers.Where(i => i.Name == name);
 
             if (info.Count() > 0)
             {
                 var attribute = info.First().GetCustomAttribute<EnumMemberAttribute>();
 
-                if (attribute != null)
-                {
-                    return attribute.Value;
-                }
+                if (attribute != null) return attribute.Value;
             }
 
             return name.ToLower();
         }
 
         /// <summary>
-        /// Convert list of Enums to a comma seperated string
+        ///     Convert list of Enums to a comma seperated string
         /// </summary>
         public static string EnumListToString<T>(IEnumerable<T> enumList)
         {
             var list = new List<string>();
 
             if (enumList != null && enumList.Any())
-            {
                 foreach (var enumItem in enumList)
-                {
-                    list.Add(EnumExtensions.ToSerializedString(enumItem as Enum));
-                }
-            }
+                    list.Add((enumItem as Enum).ToSerializedString());
             return string.Join(",", list);
         }
     }

@@ -6,19 +6,21 @@ using StarwebSharp.Entities;
 namespace StarwebSharp.Services.ShippingMethod
 {
     /// <summary>
-    /// A service for manipulating Starweb shipping methods.
+    ///     A service for manipulating Starweb shipping methods.
     /// </summary>
     public class ShippingMethodService : StarwebService
     {
         /// <summary>
-        /// Creates a new instance of <see cref="ShippingMethodService" />.
+        ///     Creates a new instance of <see cref="ShippingMethodService" />.
         /// </summary>
         /// <param name="myStarwebUrl">The shop's *.mystrweb.se/api/vX URL.</param>
         /// <param name="shopAccessToken">An API access token for the shop.</param>
-        public ShippingMethodService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken) { }
+        public ShippingMethodService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken)
+        {
+        }
 
         /// <summary>
-        /// Gets a list of shipping methods.
+        ///     Gets a list of shipping methods.
         /// </summary>
         /// <returns></returns>
         public virtual async Task<IEnumerable<ShippingMethodModel>> ListAsync()
@@ -28,10 +30,10 @@ namespace StarwebSharp.Services.ShippingMethod
         }
 
         /// <summary>
-        /// Retrieves the <see cref="ShippingMethodModel"/> with the given id.
+        ///     Retrieves the <see cref="ShippingMethodModel" /> with the given id.
         /// </summary>
         /// <param name="shippingMethodId">The id of the shipping method to retrieve.</param>
-        /// <returns>The <see cref="ShippingMethodModel"/>.</returns>
+        /// <returns>The <see cref="ShippingMethodModel" />.</returns>
         public virtual async Task<ShippingMethodModel> GetAsync(int shippingMethodId)
         {
             var req = PrepareRequest($"shipping-methods/{shippingMethodId}");

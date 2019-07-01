@@ -1,12 +1,11 @@
-﻿namespace StarwebSharp.Entities
+﻿using System.Runtime.Serialization;
+
+namespace StarwebSharp.Entities
 {
     public enum ProductModelPatchableType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"basic")]
-        Basic = 0,
+        [EnumMember(Value = @"basic")] Basic = 0,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"bundle")]
-        Bundle = 1,
-
+        [EnumMember(Value = @"bundle")] Bundle = 1
     }
 }

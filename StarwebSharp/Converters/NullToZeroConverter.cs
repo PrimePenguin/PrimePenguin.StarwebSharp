@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace StarwebSharp.Converters
 {
     /// <summary>
-    /// A custom integer converter that converts null to zero
+    ///     A custom integer converter that converts null to zero
     /// </summary>
     public class NullToZeroConverter : JsonConverter
     {
@@ -13,7 +13,8 @@ namespace StarwebSharp.Converters
             return objectType == typeof(int);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             if (reader.Value == null || string.IsNullOrEmpty(reader.Value?.ToString())) return 0;
             return Convert.ToInt32(reader.Value);
@@ -27,7 +28,7 @@ namespace StarwebSharp.Converters
             }
             else
             {
-                int number = Int32.Parse(value.ToString());
+                var number = int.Parse(value.ToString());
                 writer.WriteValue(number);
             }
         }

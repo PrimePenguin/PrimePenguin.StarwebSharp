@@ -1,32 +1,23 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace StarwebSharp.Converters
 {
     /// <summary>
-    /// A custom boolean converter that converts False to null and null to False.
+    ///     A custom boolean converter that converts False to null and null to False.
     /// </summary>
     public class FalseToNullConverter : JsonConverter
     {
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
-            if (reader.Value?.ToString() == null || reader.Value?.ToString() == "")
-            {
-                return false;
-            }
-            else
-            {
-                bool output = false;
+            if (reader.Value?.ToString() == null || reader.Value?.ToString() == "") return false;
 
-                if (bool.TryParse(reader.Value.ToString(), out output))
-                {
-                    return output;
-                }
-                else
-                {
-                    throw new JsonReaderException($"Cannot convert given JSON value with {nameof(FalseToNullConverter)}.");
-                }
-            }
+            var output = false;
+
+            if (bool.TryParse(reader.Value.ToString(), out output))
+                return output;
+            throw new JsonReaderException($"Cannot convert given JSON value with {nameof(FalseToNullConverter)}.");
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -37,37 +28,24 @@ namespace StarwebSharp.Converters
             }
             else
             {
-                bool boolean = bool.Parse(value.ToString());
+                var boolean = bool.Parse(value.ToString());
 
                 if (boolean == false)
-                {
                     writer.WriteNull();
-                }
                 else
-                {
                     writer.WriteValue(true);
-                }
             }
         }
 
         public override bool CanConvert(Type objectType)
         {
             if (objectType == typeof(string))
-            {
                 return true;
-            }
-            else if (objectType == typeof(bool))
-            {
+            if (objectType == typeof(bool))
                 return true;
-            }
-            else if (objectType == typeof(Nullable))
-            {
+            if (objectType == typeof(Nullable))
                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

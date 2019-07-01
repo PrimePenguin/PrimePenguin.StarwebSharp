@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace StarwebSharp.Entities
 {
-    public partial class OrderPutModel
+    public class OrderPutModel
     {
         /// <summary>The orders ID</summary>
         [JsonProperty("orderId", NullValueHandling = NullValueHandling.Ignore)]
@@ -64,7 +62,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("onOrderStatusChangeSendEmail", NullValueHandling = NullValueHandling.Ignore)]
         public bool OnOrderStatusChangeSendEmail { get; set; } = true;
 
-        /// <summary>Set this to false to prevent processing payment on changes to statusId. Only applies to payment methods that support processing payments. For example charging a reserved amount or cancel a created invoice</summary>
+        /// <summary>
+        ///     Set this to false to prevent processing payment on changes to statusId. Only applies to payment methods that
+        ///     support processing payments. For example charging a reserved amount or cancel a created invoice
+        /// </summary>
         [JsonProperty("onOrderStatusChangeProcessPayment", NullValueHandling = NullValueHandling.Ignore)]
         public bool OnOrderStatusChangeProcessPayment { get; set; } = true;
 
@@ -154,7 +155,10 @@ namespace StarwebSharp.Entities
         [StringLength(3, MinimumLength = 3)]
         public string CurrencyCode { get; set; }
 
-        /// <summary>The exchange rate between this orders currency and the shops base currency. Ff, for example, the shop base currency is SEK and this order was placed in NOK, where 1 SEK = 0.97 NOK - this value would be 0.97</summary>
+        /// <summary>
+        ///     The exchange rate between this orders currency and the shops base currency. Ff, for example, the shop base
+        ///     currency is SEK and this order was placed in NOK, where 1 SEK = 0.97 NOK - this value would be 0.97
+        /// </summary>
         [JsonProperty("currencyExchangeRate", NullValueHandling = NullValueHandling.Ignore)]
         public double CurrencyExchangeRate { get; set; }
 
@@ -162,7 +166,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("currencyPrecision", NullValueHandling = NullValueHandling.Ignore)]
         public int CurrencyPrecision { get; set; }
 
-        /// <summary>Language Code (ISO 639-1) used for placing this order. Has to be a valid lang code that the shop has setup. Used for order update emails, etc.</summary>
+        /// <summary>
+        ///     Language Code (ISO 639-1) used for placing this order. Has to be a valid lang code that the shop has setup.
+        ///     Used for order update emails, etc.
+        /// </summary>
         [JsonProperty("langCode", NullValueHandling = NullValueHandling.Ignore)]
         [StringLength(2, MinimumLength = 2)]
         public string LangCode { get; set; }
@@ -193,7 +200,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("shippingTrackerType", NullValueHandling = NullValueHandling.Ignore)]
         public int ShippingTrackerType { get; set; }
 
-        /// <summary>The shipping tracking number. Has to be in the format that is used for the chosen tracking type (please contact the freight forwarder regarding this).</summary>
+        /// <summary>
+        ///     The shipping tracking number. Has to be in the format that is used for the chosen tracking type (please
+        ///     contact the freight forwarder regarding this).
+        /// </summary>
         [JsonProperty("shippingTrackingNo", NullValueHandling = NullValueHandling.Ignore)]
         [StringLength(50)]
         public string ShippingTrackingNo { get; set; }
@@ -224,7 +234,5 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("addresses", NullValueHandling = NullValueHandling.Ignore)]
         public OrderAddressModel Addresses { get; set; }
-
-
     }
 }

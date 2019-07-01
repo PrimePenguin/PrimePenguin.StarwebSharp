@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using StarwebSharp.Enums;
 
 namespace StarwebSharp.Entities
 {
@@ -40,7 +39,10 @@ namespace StarwebSharp.Entities
         [Range(0, 100)]
         public double VatRate { get; set; }
 
-        /// <summary>The discount for the entire order row. Either as a percentage or an amount. If this is an amount and set to 20.0, the sum 20.0 will be subtracted from the order total no matter what the quantity is set to.</summary>
+        /// <summary>
+        ///     The discount for the entire order row. Either as a percentage or an amount. If this is an amount and set to
+        ///     20.0, the sum 20.0 will be subtracted from the order total no matter what the quantity is set to.
+        /// </summary>
         [JsonProperty("discount", NullValueHandling = NullValueHandling.Ignore)]
         [Range(0, int.MaxValue)]
         public double Discount { get; set; }

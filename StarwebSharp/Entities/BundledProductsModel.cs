@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace StarwebSharp.Entities
 {
-    public partial class BundledProductsModel
+    public class BundledProductsModel
     {
         /// <summary>Bundled product only valid for a single variant</summary>
         [JsonProperty("singleVariant", NullValueHandling = NullValueHandling.Ignore)]
@@ -30,7 +30,5 @@ namespace StarwebSharp.Entities
         /// <summary>A collection of bundled product prices</summary>
         [JsonProperty("prices", NullValueHandling = NullValueHandling.Ignore)]
         public ICollection<ProductBundleProductPriceModel> Prices { get; set; }
-
-
     }
 }

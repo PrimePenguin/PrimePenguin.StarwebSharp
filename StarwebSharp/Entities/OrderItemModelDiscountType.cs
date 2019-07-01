@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Runtime.Serialization;
 
 namespace StarwebSharp.Entities
 {
     public enum OrderItemModelDiscountType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"amount")]
-        Amount = 0,
+        [EnumMember(Value = @"amount")] Amount = 0,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"percent")]
-        Percent = 1,
-
+        [EnumMember(Value = @"percent")] Percent = 1
     }
 }

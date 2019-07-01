@@ -1,19 +1,20 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace StarwebSharp.Converters
 {
     /// <summary>
-    /// A custom enum converter for all enums which returns the value
-    /// as null when the value is null or does not exist.
+    ///     A custom enum converter for all enums which returns the value
+    ///     as null when the value is null or does not exist.
     /// </summary>
     public class NullableEnumConverter<T> : StringEnumConverter where T : struct
     {
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             T parsed;
 
@@ -31,15 +32,10 @@ namespace StarwebSharp.Converters
                     var valInfo = enumTypeInfo.DeclaredMembers;
                     var enumMember = valInfo.First().GetCustomAttributes(typeof(EnumMemberAttribute), false);
 
-                    if (enumMember.Count() == 0)
-                    {
-                        continue;
-                    }
+                    if (enumMember.Count() == 0) continue;
 
-                    if (((EnumMemberAttribute)enumMember.First()).Value?.ToString() == reader.Value?.ToString())
-                    {
-                        return (T)enumVal;
-                    }
+                    if (((EnumMemberAttribute) enumMember.First()).Value == reader.Value?.ToString())
+                        return (T) enumVal;
                 }
 
                 //No match found. Return null.

@@ -8,19 +8,21 @@ using StarwebSharp.Infrastructure;
 namespace StarwebSharp.Services.OrderStatus
 {
     /// <summary>
-    /// A service for manipulating Starweb order statuses.
+    ///     A service for manipulating Starweb order statuses.
     /// </summary>
     public class OrderStatusService : StarwebService
     {
         /// <summary>
-        /// Creates a new instance of <see cref="OrderStatusService" />.
+        ///     Creates a new instance of <see cref="OrderStatusService" />.
         /// </summary>
         /// <param name="myStarwebUrl">The shop's *.mystrweb.se/api/vX URL.</param>
         /// <param name="shopAccessToken">An API access token for the shop.</param>
-        public OrderStatusService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken) { }
+        public OrderStatusService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken)
+        {
+        }
 
         /// <summary>
-        /// Gets a list of order statuses.
+        ///     Gets a list of order statuses.
         /// </summary>
         /// <returns></returns>
         public virtual async Task<IEnumerable<OrderStatusModel>> ListAsync()
@@ -30,10 +32,10 @@ namespace StarwebSharp.Services.OrderStatus
         }
 
         /// <summary>
-        /// Retrieves the <see cref="OrderStatusModel"/> with the given id.
+        ///     Retrieves the <see cref="OrderStatusModel" /> with the given id.
         /// </summary>
         /// <param name="orderStatusId">The id of the order status to retrieve.</param>
-        /// <returns>The <see cref="OrderStatusModel"/>.</returns>
+        /// <returns>The <see cref="OrderStatusModel" />.</returns>
         public virtual async Task<OrderStatusModel> GetAsync(int orderStatusId)
         {
             var req = PrepareRequest($"order-statuses/{orderStatusId}");
@@ -42,10 +44,10 @@ namespace StarwebSharp.Services.OrderStatus
 
 
         /// <summary>
-        /// Creates a new <see cref="OrderStatusModel"/> on the store.
+        ///     Creates a new <see cref="OrderStatusModel" /> on the store.
         /// </summary>
-        /// <param name="order">A new <see cref="OrderModel"/>. Id should be set to null.</param>
-        /// <returns>The new <see cref="OrderStatusModel"/>.</returns>
+        /// <param name="order">A new <see cref="OrderModel" />. Id should be set to null.</param>
+        /// <returns>The new <see cref="OrderStatusModel" />.</returns>
         public virtual async Task<OrderStatusModel> CreateAsync(OrderStatusCreateUpdateModel order)
         {
             var req = PrepareRequest("order-statuses");
@@ -56,11 +58,11 @@ namespace StarwebSharp.Services.OrderStatus
         }
 
         /// <summary>
-        /// Updates the given <see cref="OrderStatusModel"/>.
+        ///     Updates the given <see cref="OrderStatusModel" />.
         /// </summary>
         /// <param name="orderStatusId">Id of the object being updated.</param>
-        /// <param name="order">The <see cref="OrderStatusCreateUpdateModel"/> to update.</param>
-        /// <returns>The updated <see cref="OrderStatusModel"/>.</returns>
+        /// <param name="order">The <see cref="OrderStatusCreateUpdateModel" /> to update.</param>
+        /// <returns>The updated <see cref="OrderStatusModel" />.</returns>
         public virtual async Task<OrderStatusModel> UpdateAsync(int orderStatusId, OrderStatusCreateUpdateModel order)
         {
             var req = PrepareRequest($"order-statuses/{orderStatusId}");
@@ -72,11 +74,11 @@ namespace StarwebSharp.Services.OrderStatus
 
 #if NETCORE
         /// <summary>
-        /// Updates the given <see cref="OrderStatusModel"/>.
+        ///     Updates the given <see cref="OrderStatusModel" />.
         /// </summary>
         /// <param name="orderStatusId">Id of the object being updated.</param>
-        /// <param name="order">The <see cref="OrderStatusCreateUpdateModel"/> to update.</param>
-        /// <returns>The updated <see cref="OrderStatusModel"/>.</returns>
+        /// <param name="order">The <see cref="OrderStatusCreateUpdateModel" /> to update.</param>
+        /// <returns>The updated <see cref="OrderStatusModel" />.</returns>
         public virtual async Task<OrderStatusModel> PatchAsync(int orderStatusId, OrderStatusCreateUpdateModel order)
         {
             var req = PrepareRequest($"order-statuses/{orderStatusId}");
@@ -88,7 +90,7 @@ namespace StarwebSharp.Services.OrderStatus
 #endif
 
         /// <summary>
-        /// Deletes a order status with the given Id.
+        ///     Deletes a order status with the given Id.
         /// </summary>
         /// <param name="orderStatusId">The order object's Id.</param>
         public virtual async Task DeleteAsync(int orderStatusId)

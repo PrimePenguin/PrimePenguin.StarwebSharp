@@ -9,17 +9,18 @@ namespace StarwebSharp.Services.ProductBundled
 {
     public class ProductBundledService : StarwebService
     {
-
         /// <summary>
-        /// Creates a new instance of <see cref="ProductBundledService" />.
+        ///     Creates a new instance of <see cref="ProductBundledService" />.
         /// </summary>
         /// <param name="myStarwebUrl">The shop's *.mystrweb.se/api/vX URL.</param>
         /// <param name="shopAccessToken">An API access token for the shop.</param>
-        public ProductBundledService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken) { }
+        public ProductBundledService(string myStarwebUrl, string shopAccessToken) : base(myStarwebUrl, shopAccessToken)
+        {
+        }
 
 
         /// <summary>
-        /// Return a list of bundled products. Max 100 per call.
+        ///     Return a list of bundled products. Max 100 per call.
         /// </summary>
         /// <param name="productId">The product id of product.</param>
         /// <returns></returns>
@@ -27,41 +28,38 @@ namespace StarwebSharp.Services.ProductBundled
         {
             var req = PrepareRequest($"products/{productId}/bundled-products");
 
-            if (filter != null)
-            {
-                req.QueryParams.AddRange(filter.ToParameters());
-            }
+            if (filter != null) req.QueryParams.AddRange(filter.ToParameters());
 
             return await ExecuteRequestAsync<BundledProductsModel>(req, HttpMethod.Get, rootElement: "");
         }
 
         /// <summary>
-        /// Retrieves the <see cref="BundledProductsModel"/> with the given bundled id.
+        ///     Retrieves the <see cref="BundledProductsModel" /> with the given bundled id.
         /// </summary>
         /// <param name="productId">The product id of product.</param>
         /// <param name="bundledProductId">bundled product id of product.</param>
-        /// <param name="include">If you want to include child data in the result. Example: ? include=languages (to include language based data such as category names, description, etc). Available includes: languages</param>
-        /// <returns>The <see cref="BundledProductsModel"/>.</returns>
+        /// <param name="include">
+        ///     If you want to include child data in the result. Example: ? include=languages (to include
+        ///     language based data such as category names, description, etc). Available includes: languages
+        /// </param>
+        /// <returns>The <see cref="BundledProductsModel" />.</returns>
         public virtual async Task<BundledProductsModel> GetAsync(int productId, int bundledProductId,
             string include = null)
         {
             var req = PrepareRequest($"products/{productId}/bundled-products/{bundledProductId}");
 
-            if (!string.IsNullOrEmpty(include))
-            {
-                req.QueryParams.Add("include", include);
-            }
+            if (!string.IsNullOrEmpty(include)) req.QueryParams.Add("include", include);
 
             return await ExecuteRequestAsync<BundledProductsModel>(req, HttpMethod.Get, rootElement: "data");
         }
 
 
         /// <summary>
-        /// Creates a new <see cref="BundledProductsModel"/> on the store.
+        ///     Creates a new <see cref="BundledProductsModel" /> on the store.
         /// </summary>
         /// <param name="productId">The product id of product.</param>
-        /// <param name="bundledProductModel">A new <see cref="BundledProductsModel"/>. Id should be set to null.</param>
-        /// <returns>The new <see cref="BundledProductsModel"/>.</returns>
+        /// <param name="bundledProductModel">A new <see cref="BundledProductsModel" />. Id should be set to null.</param>
+        /// <returns>The new <see cref="BundledProductsModel" />.</returns>
         public virtual async Task<BundledProductsModel> CreateAsync(int productId,
             BundledProductsModel bundledProductModel)
         {
@@ -73,7 +71,7 @@ namespace StarwebSharp.Services.ProductBundled
         }
 
         /// <summary>
-        /// Deletes a product bundled product
+        ///     Deletes a product bundled product
         /// </summary>
         /// <param name="productId">The product id of product.</param>
         /// <param name="bundledProductId">bundled product id of product.</param>
@@ -85,12 +83,12 @@ namespace StarwebSharp.Services.ProductBundled
         }
 
         /// <summary>
-        /// Updates the given <see cref="BundledProductsModel"/>.
+        ///     Updates the given <see cref="BundledProductsModel" />.
         /// </summary>
         /// <param name="productId">The product id of product.</param>
         /// <param name="bundledProductId">bundled product id of product.</param>
-        /// <param name="bundleProductModel">The <see cref="BundledProductsModel"/> to update.</param>
-        /// <returns>The updated <see cref="BundledProductsModel"/>.</returns>
+        /// <param name="bundleProductModel">The <see cref="BundledProductsModel" /> to update.</param>
+        /// <returns>The updated <see cref="BundledProductsModel" />.</returns>
         public virtual async Task<BundledProductsModel> UpdateAsync(int productId, int bundledProductId,
             BundledProductsModel bundleProductModel)
         {

@@ -3,12 +3,10 @@ using Newtonsoft.Json;
 
 namespace StarwebSharp.Entities
 {
-    public partial class ProductBundleProductPriceModelCollection
+    public class ProductBundleProductPriceModelCollection
     {
         /// <summary>A collection of bundled product prices</summary>
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
         public ICollection<ProductBundleProductPriceModel> Data { get; set; }
-
-
     }
 }

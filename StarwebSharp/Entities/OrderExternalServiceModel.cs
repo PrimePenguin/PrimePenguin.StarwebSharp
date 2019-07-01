@@ -5,7 +5,10 @@ namespace StarwebSharp.Entities
 {
     public class OrderExternalServiceModel
     {
-        /// <summary>The service name that this external id is linked to. Please note that this service name has to be unique for the order</summary>
+        /// <summary>
+        ///     The service name that this external id is linked to. Please note that this service name has to be unique for
+        ///     the order
+        /// </summary>
         [JsonProperty("serviceName", NullValueHandling = NullValueHandling.Ignore)]
         [StringLength(40)]
         public string ServiceName { get; set; }
