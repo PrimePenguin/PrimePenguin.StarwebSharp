@@ -18,10 +18,10 @@ skip_commits:
 deploy:
 - provider: NuGet
   api_key:
-    secure: AMDZrnuo9pKvnCGzY4/h4UKkKnOmA01d+vfN+d4xIKj8jNDAKWVmdERqgGXfri35
+    secure: J2kg5DWTve4wj8MHMV4JUo0TOTMpRB4S64fn4FArSzU1SDHk0hSlfhIELrZFvsnD
   on:
     branch: master
-    appveyor_repo_tag: true
+    APPVEYOR_REPO_TAG: true
 - provider: GitHub
   tag: $(APPVEYOR_REPO_TAG_NAME)
   description: "Automated AppVeyor release for StarwebSharp v$(APPVEYOR_REPO_TAG_NAME)."
@@ -30,4 +30,4 @@ deploy:
   artifact: StarwebSharp.nupkg
   on:
     branch: master
-    appveyor_repo_tag: true
+    APPVEYOR_REPO_TAG: true
