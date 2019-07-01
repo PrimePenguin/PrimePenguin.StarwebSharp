@@ -18,7 +18,7 @@ skip_commits:
 deploy:
 - provider: NuGet
   api_key:
-    secure: rK5xep53zRlIo901nw7ZVS3Z7S2hfeVdYR2EzWcy04LoKTnPIC5AN4VJ/xH87aNT
+    secure: AMDZrnuo9pKvnCGzY4/h4UKkKnOmA01d+vfN+d4xIKj8jNDAKWVmdERqgGXfri35
   on:
     branch: master
     appveyor_repo_tag: true
@@ -26,7 +26,7 @@ deploy:
   tag: $(APPVEYOR_REPO_TAG_NAME)
   description: "Automated AppVeyor release for StarwebSharp v$(APPVEYOR_REPO_TAG_NAME)."
   auth_token:
-    secure: hFvrcwQw++oZW/fDVj7b0hI/aQbb6ZzM8a5F9/P8ZjjNhQ+GMVEyM3vQTlLMA9UU
+    secure: rUdMlXxmA59ftJKv2pnCXtgwYhZf2xqyFl0iuAvf6qylYCjM3aF8klLN+711LFV5
   artifact: StarwebSharp.nupkg
   on:
     branch: master
