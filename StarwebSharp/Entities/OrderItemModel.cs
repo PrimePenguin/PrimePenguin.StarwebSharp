@@ -24,7 +24,7 @@ namespace StarwebSharp.Entities
         /// <summary>The quantity of the order item</summary>
         [JsonProperty("quantity", NullValueHandling = NullValueHandling.Ignore)]
         [Range(-1000000, 1000000)]
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
 
         /// <summary>The unit symbol of the order item</summary>
         [JsonProperty("unitSymbol", NullValueHandling = NullValueHandling.Ignore)]
@@ -40,10 +40,7 @@ namespace StarwebSharp.Entities
         [Range(0, 100)]
         public double VatRate { get; set; }
 
-        /// <summary>
-        ///     The discount for the entire order row. Either as a percentage or an amount. If this is an amount and set to
-        ///     20.0, the sum 20.0 will be subtracted from the order total no matter what the quantity is set to.
-        /// </summary>
+        /// <summary>The discount for the entire order row. Either as a percentage or an amount. If this is an amount and set to 20.0, the sum 20.0 will be subtracted from the order total no matter what the quantity is set to.</summary>
         [JsonProperty("discount", NullValueHandling = NullValueHandling.Ignore)]
         [Range(0, int.MaxValue)]
         public double Discount { get; set; }
@@ -56,6 +53,6 @@ namespace StarwebSharp.Entities
         /// <summary>The sort order of the order items</summary>
         [JsonProperty("sortIndex", NullValueHandling = NullValueHandling.Ignore)]
         [Range(0, int.MaxValue)]
-        public int? SortIndex { get; set; }
+        public int SortIndex { get; set; }
     }
 }

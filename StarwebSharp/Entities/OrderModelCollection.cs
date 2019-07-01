@@ -7,13 +7,10 @@ namespace StarwebSharp.Entities
     public class OrderModelCollection
     {
         /// <summary>A list of orders</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
-        public ICollection<OrderModel> Data { get; set; } =
-            new Collection<OrderModel>();
+        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<OrderModel> Data { get; set; }
 
-        [JsonProperty("meta",
-            NullValueHandling = NullValueHandling.Ignore)]
-        public Meta Meta { get; set; } = new Meta();
+        [JsonProperty("meta", NullValueHandling = NullValueHandling.Ignore)]
+        public Meta Meta { get; set; }
     }
 }

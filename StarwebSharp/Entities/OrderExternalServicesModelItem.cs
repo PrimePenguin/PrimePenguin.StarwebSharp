@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class OrderExternalServicesModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
-        public OrderExternalServiceModel Data { get; set; } = new OrderExternalServiceModel();
+        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        public OrderExternalServiceModel Data { get; set; }
     }
 }
