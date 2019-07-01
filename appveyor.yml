@@ -2,6 +2,8 @@ version: 4.0.{build}
 image: Visual Studio 2017
 build_script:
 - ps: ./scripts/build.ps1
+environment:
+  APPVEYOR_REPO_TAG: true
 artifacts:
 - path: StarwebSharp/bin/Release/netstandard1.4
   name: netstandard16
@@ -21,7 +23,6 @@ deploy:
     secure: J2kg5DWTve4wj8MHMV4JUo0TOTMpRB4S64fn4FArSzU1SDHk0hSlfhIELrZFvsnD
   on:
     branch: master
-    APPVEYOR_REPO_TAG: true
 - provider: GitHub
   tag: $(APPVEYOR_REPO_TAG_NAME)
   description: "Automated AppVeyor release for StarwebSharp v$(APPVEYOR_REPO_TAG_NAME)."
@@ -30,4 +31,3 @@ deploy:
   artifact: StarwebSharp.nupkg
   on:
     branch: master
-    APPVEYOR_REPO_TAG: true
