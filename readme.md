@@ -50,3 +50,13 @@ var service = new ProductService(myStarwebUrl, shopAccessToken);
 - Shop
 - Webhook
 - Media Files
+- Order Comments
+- Order External Services
+- Product Bundled
+- Product Bundled Product Prices
+- Order Category Links
+- Product Language
+- Product Meta Data
+- Product Unit
+- ProductVariant Attribute
+- ProductVariant Attribute Value
