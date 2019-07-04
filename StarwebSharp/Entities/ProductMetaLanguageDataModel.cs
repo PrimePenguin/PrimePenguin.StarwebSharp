@@ -6,13 +6,11 @@ namespace StarwebSharp.Entities
     public class ProductMetaLanguageDataModel
     {
         /// <summary>The langCode for this language</summary>
-        [JsonProperty("langCode",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("langCode")]
         public string LangCode { get; set; }
 
         /// <summary>The value for this meta data</summary>
-        [JsonProperty("value",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("value")]
         [StringLength(255)]
         public string Value { get; set; }
     }

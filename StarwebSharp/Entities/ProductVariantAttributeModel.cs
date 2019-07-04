@@ -5,13 +5,11 @@ namespace StarwebSharp.Entities
     public class ProductVariantAttributeModel
     {
         /// <summary>The id for this attribute</summary>
-        [JsonProperty("attributeId",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("attributeId")]
         public int AttributeId { get; set; }
 
         /// <summary>A collection of attribute languages</summary>
-        [JsonProperty("languages",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("languages")]
         public Languages2 Languages { get; set; } = new Languages2();
     }
 }

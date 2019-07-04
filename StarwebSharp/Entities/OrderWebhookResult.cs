@@ -4,19 +4,19 @@ namespace StarwebSharp.Entities
 {
     public class OrderWebhookResult : WebhookResult
     {
-        [JsonProperty("orderId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("orderId")]
         public int OrderId { get; set; }
-        [JsonProperty("shippingMethodId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shippingMethodId")]
         public int ShippingMethodId { get; set; }
-        [JsonProperty("paymentMethodId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("paymentMethodId")]
         public int PaymentMethodId { get; set; }
-        [JsonProperty("orderStatusId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("orderStatusId")]
         public int OrderStatusId { get; set; }
-        [JsonProperty("orderStatusIdCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("orderStatusIdCode")]
         public object OrderStatusIdCode { get; set; }
-        [JsonProperty("totalAmount", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("totalAmount")]
         public string TotalAmount { get; set; }
-        [JsonProperty("currencyCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("currencyCode")]
         public string CurrencyCode { get; set; }
     }
 }

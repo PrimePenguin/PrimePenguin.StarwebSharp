@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ProductMetaLanguageDataModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ProductMetaLanguageDataModel Data { get; set; } = new ProductMetaLanguageDataModel();
     }
 }

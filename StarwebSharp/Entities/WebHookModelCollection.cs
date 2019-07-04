@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class WebHookModelCollection
     {
         /// <summary>A list of web hooks</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<WebHookModel> Data { get; set; } =
             new Collection<WebHookModel>();
     }

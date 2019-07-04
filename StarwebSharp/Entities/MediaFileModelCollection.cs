@@ -7,13 +7,11 @@ namespace StarwebSharp.Entities
     public class MediaFileModelCollection
     {
         /// <summary>A collection of media files</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<MediaFileModel> Data { get; set; } =
             new Collection<MediaFileModel>();
 
-        [JsonProperty("meta",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("meta")]
         public Meta Meta { get; set; } = new Meta();
     }
 }

@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ProductCategoryLanguagesModelCollection
     {
         /// <summary>A collection of category languages</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ProductCategoryLanguagesModel> Data { get; set; } =
             new Collection<ProductCategoryLanguagesModel>();
     }

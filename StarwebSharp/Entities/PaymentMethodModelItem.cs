@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class PaymentMethodModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public PaymentMethodModel Data { get; set; } = new PaymentMethodModel();
     }
 }

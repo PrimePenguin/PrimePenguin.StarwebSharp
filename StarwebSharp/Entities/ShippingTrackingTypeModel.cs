@@ -5,13 +5,11 @@ namespace StarwebSharp.Entities
     public class ShippingTrackingTypeModel
     {
         /// <summary>The shipping tracking type ID</summary>
-        [JsonProperty("type",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type")]
         public int? Type { get; set; }
 
         /// <summary>The shipping tracking type name</summary>
-        [JsonProperty("name",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name")]
         public string Name { get; set; }
     }
 }

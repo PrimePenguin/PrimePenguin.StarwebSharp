@@ -15,13 +15,11 @@ namespace StarwebSharp.Entities
         }
 
         /// <summary>An error code for this type of error</summary>
-        [JsonProperty("error",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("error")]
         public string Error { get; set; }
 
         /// <summary>A human readable description of the error</summary>
-        [JsonProperty("error_description",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("error_description")]
         public string ErrorDescription { get; set; }
     }
 }

@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ProductVariantAttributeValueModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ProductVariantAttributeValueModel Data { get; set; } = new ProductVariantAttributeValueModel();
     }
 }

@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ProductVariantPriceModelCollection
     {
         /// <summary>A collection of product variants</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ProductVariantPriceModel> Data { get; set; } =
             new Collection<ProductVariantPriceModel>();
     }

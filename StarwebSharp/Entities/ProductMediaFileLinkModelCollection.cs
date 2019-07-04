@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ProductMediaFileLinkModelCollection
     {
         /// <summary>A collection of product media file links</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ProductMediaFileLinkModel> Data { get; set; } =
             new Collection<ProductMediaFileLinkModel>();
     }

@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class PaymentMethodLanguageModelCollection
     {
         /// <summary>A collection of payment method languages</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<PaymentMethodLanguageModel> Data { get; set; } =
             new Collection<PaymentMethodLanguageModel>();
     }

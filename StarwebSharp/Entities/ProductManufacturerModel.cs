@@ -6,19 +6,17 @@ namespace StarwebSharp.Entities
     public class ProductManufacturerModel
     {
         /// <summary>The id of this manufacturer</summary>
-        [JsonProperty("manufacturerId",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("manufacturerId")]
         public int? ManufacturerId { get; set; }
 
         /// <summary>The name of this manufacturer</summary>
-        [JsonProperty("name", Required = Required.Always)]
-        [Required(AllowEmptyStrings = true)]
+        [JsonProperty("name")]
+        
         [StringLength(30)]
         public string Name { get; set; }
 
         /// <summary>The URL to the manufacturers website</summary>
-        [JsonProperty("url",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("url")]
         [StringLength(255)]
         public string Url { get; set; }
     }

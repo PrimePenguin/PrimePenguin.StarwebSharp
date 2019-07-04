@@ -8,69 +8,69 @@ namespace StarwebSharp.Entities
     public class ShopModel
     {
         /// <summary>The shop name</summary>
-        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>A unique id code for this shop</summary>
-        [JsonProperty("idCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("idCode")]
         public string IdCode { get; set; }
 
         /// <summary>The current status of this shop. Possible values are: open, closed, inactive</summary>
-        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("status")]
         public string Status { get; set; }
 
         /// <summary>Shops default language code</summary>
-        [JsonProperty("defaultLangCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("defaultLangCode")]
         public string DefaultLangCode { get; set; }
 
         /// <summary>Active languages in shop</summary>
-        [JsonProperty("activeLangCodes", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("activeLangCodes")]
         public ICollection<string> ActiveLangCodes { get; set; } =
             new Collection<string>();
 
         /// <summary>The shops base currency. All currencies and related data can be fetched using the /currencies endpoint</summary>
-        [JsonProperty("baseCurrency", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("baseCurrency")]
         public string BaseCurrency { get; set; }
 
         /// <summary>The default customer country</summary>
-        [JsonProperty("defaultCustomerCountryCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("defaultCustomerCountryCode")]
         public string DefaultCustomerCountryCode { get; set; }
 
         /// <summary>The default vat rate for new products</summary>
-        [JsonProperty("generalDefaultVatRate", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("generalDefaultVatRate")]
         [Range(0.0D, int.MaxValue)]
         public double GeneralDefaultVatRate { get; set; }
 
         /// <summary>The company running this web shop</summary>
-        [JsonProperty("shopCompanyName", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopCompanyName")]
         public string ShopCompanyName { get; set; }
 
         /// <summary>The address to the web shop</summary>
-        [JsonProperty("shopAddress", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopAddress")]
         public string ShopAddress { get; set; }
 
         /// <summary>The postal code to the web shop</summary>
-        [JsonProperty("shopPostalCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopPostalCode")]
         public string ShopPostalCode { get; set; }
 
         /// <summary>The city to the web shop</summary>
-        [JsonProperty("shopCity", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopCity")]
         public string ShopCity { get; set; }
 
         /// <summary>The business id of the company running the web shop</summary>
-        [JsonProperty("shopOrgNo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopOrgNo")]
         public string ShopOrgNo { get; set; }
 
         /// <summary>The contact phone number to the web shop</summary>
-        [JsonProperty("shopPhoneNo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopPhoneNo")]
         public string ShopPhoneNo { get; set; }
 
         /// <summary>The EU VAT number of the company running the web shop</summary>
-        [JsonProperty("shopVatNo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopVatNo")]
         public string ShopVatNo { get; set; }
 
         /// <summary>The country the company behind the web shop resides in</summary>
-        [JsonProperty("shopCountryCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopCountryCode")]
         public string ShopCountryCode { get; set; }
     }
 }

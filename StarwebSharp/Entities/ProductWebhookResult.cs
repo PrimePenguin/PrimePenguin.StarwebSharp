@@ -4,7 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ProductWebhookResult : WebhookResult
     {
-        [JsonProperty("productId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("productId")]
         public int ProductId { get; set; }
     }
 }

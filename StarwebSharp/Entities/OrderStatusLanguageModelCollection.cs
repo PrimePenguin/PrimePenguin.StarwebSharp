@@ -7,7 +7,7 @@ namespace StarwebSharp.Entities
     public class OrderStatusLanguageModelCollection
     {
         /// <summary>A list of customer tags</summary>
-        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<OrderStatusLanguageModel> Data { get; set; } =
             new Collection<OrderStatusLanguageModel>();
     }

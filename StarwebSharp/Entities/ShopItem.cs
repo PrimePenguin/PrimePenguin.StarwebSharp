@@ -4,7 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ShopItem
     {
-        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ShopModel Data { get; set; }
     }
 }

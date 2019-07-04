@@ -4,7 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ProductBundleProductPriceModelItem
     {
-        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ProductBundleProductPriceModel Data { get; set; }
     }
 }

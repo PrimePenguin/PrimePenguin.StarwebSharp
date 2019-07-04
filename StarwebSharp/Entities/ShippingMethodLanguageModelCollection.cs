@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ShippingMethodLanguageModelCollection
     {
         /// <summary>A collection of shipping method languages</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ShippingMethodLanguageModel> Data { get; set; } =
             new Collection<ShippingMethodLanguageModel>();
     }

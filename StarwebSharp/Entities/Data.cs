@@ -4,12 +4,10 @@ namespace StarwebSharp.Entities
 {
     public class Data
     {
-        [JsonProperty("invoice",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("invoice")]
         public AddressModel Invoice { get; set; }
 
-        [JsonProperty("delivery",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("delivery")]
         public AddressModel Delivery { get; set; }
     }
 }

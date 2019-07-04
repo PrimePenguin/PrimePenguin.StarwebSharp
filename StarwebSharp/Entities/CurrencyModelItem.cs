@@ -4,7 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class CurrencyModelItem
     {
-        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public CurrencyModel Data { get; set; }
     }
 }

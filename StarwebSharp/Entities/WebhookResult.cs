@@ -5,11 +5,11 @@ namespace StarwebSharp.Entities
 {
     public class WebhookResult
     {
-        [JsonProperty("eventId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("eventId")]
         public string EventId { get; set; }
-        [JsonProperty("shopIdCode", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shopIdCode")]
         public string ShopIdCode { get; set; }
-        [JsonProperty("eventTimeStamp", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("eventTimeStamp")]
         public DateTime EventTimeStamp { get; set; }
     }
 }

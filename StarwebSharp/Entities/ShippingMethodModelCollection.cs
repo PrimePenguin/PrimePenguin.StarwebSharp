@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ShippingMethodModelCollection
     {
         /// <summary>A collection of shipping methods</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ShippingMethodModel> Data { get; set; } =
             new Collection<ShippingMethodModel>();
     }

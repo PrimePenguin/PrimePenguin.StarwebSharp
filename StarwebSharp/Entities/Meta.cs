@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class Meta
     {
-        [JsonProperty("pagination",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("pagination")]
         public PaginationModel Pagination { get; set; } = new PaginationModel();
     }
 }

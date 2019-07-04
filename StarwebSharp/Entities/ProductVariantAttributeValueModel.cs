@@ -8,24 +8,20 @@ namespace StarwebSharp.Entities
     public class ProductVariantAttributeValueModel
     {
         /// <summary>The id for this attribute value</summary>
-        [JsonProperty("attributeValueId",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("attributeValueId")]
         public int AttributeValueId { get; set; }
 
         /// <summary>The suggested suffix for new Variants using this attribute value</summary>
-        [JsonProperty("skuSuffix",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("skuSuffix")]
         public string SkuSuffix { get; set; }
 
         /// <summary>The sort order for this attribute value</summary>
-        [JsonProperty("sortIndex",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("sortIndex")]
         [Range(0, int.MaxValue)]
         public int? SortIndex { get; set; }
 
         /// <summary>A collection of attribute value languages</summary>
-        [JsonProperty("languages",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("languages")]
         public ProductVariantAttributeValueLanguageModelCollection Languages { get; set; } =
             new ProductVariantAttributeValueLanguageModelCollection();
     }

@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ShippingTrackingTypeModelCollection
     {
         /// <summary>A list of shipping tracking types</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ShippingTrackingTypeModel> Data { get; set; } =
             new Collection<ShippingTrackingTypeModel>();
     }

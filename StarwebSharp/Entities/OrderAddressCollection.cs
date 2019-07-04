@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class OrderAddressCollection
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public OrderAddressModel Data { get; set; } = new OrderAddressModel();
     }
 }

@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class WebHookModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public WebHookModel Data { get; set; } = new WebHookModel();
     }
 }

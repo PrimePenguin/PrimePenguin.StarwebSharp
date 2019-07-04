@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class MediaFileUploadModel
     {
-        [JsonProperty("file",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("file")]
         public string File { get; set; }
     }
 }

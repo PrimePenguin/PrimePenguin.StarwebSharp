@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class OrderCommentModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public OrderCommentModel Data { get; set; } = new OrderCommentModel();
     }
 }

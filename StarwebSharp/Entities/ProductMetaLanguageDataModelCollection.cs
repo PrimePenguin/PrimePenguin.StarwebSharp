@@ -7,8 +7,7 @@ namespace StarwebSharp.Entities
     public class ProductMetaLanguageDataModelCollection
     {
         /// <summary>A collection of product meta data</summary>
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ICollection<ProductMetaLanguageDataModel> Data { get; set; } =
             new Collection<ProductMetaLanguageDataModel>();
     }

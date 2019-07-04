@@ -5,13 +5,11 @@ namespace StarwebSharp.Entities
     public class CustomerTagModel
     {
         /// <summary>The tag Id</summary>
-        [JsonProperty("tagId",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tagId")]
         public int TagId { get; set; }
 
         /// <summary>The tag name</summary>
-        [JsonProperty("name",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name")]
         public string Name { get; set; }
     }
 }

@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ProductMediaFileLinkModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ProductMediaFileLinkModel Data { get; set; } = new ProductMediaFileLinkModel();
     }
 }

@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class ShippingMethodModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public ShippingMethodModel Data { get; set; } = new ShippingMethodModel();
     }
 }

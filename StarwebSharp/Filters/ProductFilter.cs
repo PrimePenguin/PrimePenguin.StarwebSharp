@@ -49,12 +49,9 @@ namespace StarwebSharp.Filters
         public string FilterSku { get; set; }
 
         /// <summary>
-        /// If you want to include child data in the result.
-        /// Example: ?include=primaryVariant (to include primary product variant);
-        /// ?include=primaryVariant,languages (to include both primary product variant and languages).
-        /// Available includes: primaryVariant, primaryVariant.prices, primaryVariant.attributeValues, attributes, mediaFiles, languages, vatRates, categories, unit, metaData.
-        /// NOTE! Only one variant is included in result for performance reason.
-        /// To fetch all variants, instead use /products/x/variants(unnecessary if hasSeveralVariants is false)
+        /// If you want to include child data in the result. Example: ?include=primaryVariant (to include primary product variant);?include=primaryVariant,languages (to include both primary product variant and languages).
+        /// Available includes: primaryVariant, primaryVariant.prices, primaryVariant.attributeValues, attributes, mediaFiles, languages, vatRates, categories, unit, metaData, bundledProducts, bundledProducts.prices.
+        /// NOTE! Only one variant and language is included in the result for performance reason.To fetch all variants, instead use /products/x/variants(unnecessary if hasSeveralVariants is false) and to fetch all languages for an object, instead use the individual objects language endpoint
         /// </summary>
         [JsonProperty("include")]
         public string Include { get; set; }

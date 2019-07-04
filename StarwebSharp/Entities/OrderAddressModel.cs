@@ -4,28 +4,22 @@ namespace StarwebSharp.Entities
 {
     public class OrderAddressModel
     {
-        [JsonProperty("originalInvoice",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("originalInvoice")]
         public AddressModel OriginalInvoice { get; set; } = new AddressModel();
 
-        [JsonProperty("originalDelivery",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("originalDelivery")]
         public AddressModel OriginalDelivery { get; set; } = new AddressModel();
 
-        [JsonProperty("customerInvoice",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("customerInvoice")]
         public AddressModel CustomerInvoice { get; set; } = new AddressModel();
 
-        [JsonProperty("customerDelivery",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("customerDelivery")]
         public AddressModel CustomerDelivery { get; set; } = new AddressModel();
 
-        [JsonProperty("paymentMethodInvoice",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("paymentMethodInvoice")]
         public AddressModel PaymentMethodInvoice { get; set; } = new AddressModel();
 
-        [JsonProperty("paymentMethodDelivery",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("paymentMethodDelivery")]
         public AddressModel PaymentMethodDelivery { get; set; } = new AddressModel();
     }
 }

@@ -4,8 +4,7 @@ namespace StarwebSharp.Entities
 {
     public class CustomerTagModelItem
     {
-        [JsonProperty("data",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("data")]
         public CustomerTagModel Data { get; set; } = new CustomerTagModel();
     }
 }
