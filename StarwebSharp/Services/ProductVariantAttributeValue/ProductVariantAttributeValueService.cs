@@ -50,7 +50,7 @@ namespace StarwebSharp.Services.ProductVariantAttributeValue
         public virtual async Task<ProductVariantAttributeValueModel> GetAsync(int attributeId, int attributeValueId,
             string include = null)
         {
-            var req = PrepareRequest($"products-attributes/{attributeId}/values/{attributeValueId}");
+            var req = PrepareRequest($"product-attributes/{attributeId}/values/{attributeValueId}");
             ;
             if (!string.IsNullOrEmpty(include)) req.QueryParams.Add("include", include);
 

@@ -64,6 +64,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("pricelistId")]
         public int? PricelistId { get; set; }
 
+        /// <summary>Language code for the customer</summary>
+        [JsonProperty("langCode", NullValueHandling = NullValueHandling.Ignore)]
+        public string LangCode { get; set; }
+
         [JsonProperty("tags")]
         public CustomerTagModelCollection Tags { get; set; }
 

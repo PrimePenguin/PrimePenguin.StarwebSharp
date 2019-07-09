@@ -80,6 +80,9 @@ namespace StarwebSharp.Entities
         [JsonProperty("variants")]
         public ProductVariantModelCollection Variants { get; set; }
 
+        [JsonProperty("bundledProducts")]
+        public BundledProductsModelCollection BundledProducts { get; set; }
+
         [JsonProperty("mediaFiles")]
         public ProductMediaFileLinkModelCollection MediaFiles { get; set; }
 

@@ -24,13 +24,13 @@ namespace StarwebSharp.Services.ProductBundled
         /// </summary>
         /// <param name="productId">The product id of product.</param>
         /// <returns></returns>
-        public virtual async Task<BundledProductsModel> ListAsync(int productId, BundledProductFilter filter = null)
+        public virtual async Task<BundledProductsModelCollection> ListAsync(int productId, BundledProductFilter filter = null)
         {
             var req = PrepareRequest($"products/{productId}/bundled-products");
 
             if (filter != null) req.QueryParams.AddRange(filter.ToParameters());
 
-            return await ExecuteRequestAsync<BundledProductsModel>(req, HttpMethod.Get, rootElement: "");
+            return await ExecuteRequestAsync<BundledProductsModelCollection>(req, HttpMethod.Get, rootElement: "");
         }
 
         /// <summary>

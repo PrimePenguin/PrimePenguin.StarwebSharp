@@ -25,14 +25,11 @@ namespace StarwebSharp.Services.ProductCategoryLinks
         /// </summary>
         /// <param name="productId">The Id of product.</param>
         /// <returns></returns>
-        public virtual async Task<ProductCategoryLinkModel> ListAsync(int productId,
-            ProductCategoryFilter filter = null)
+        public virtual async Task<ProductCategoryLinkModelCollection> ListAsync(int productId)
         {
-            var req = PrepareRequest($"product/{productId}/categories");
+            var req = PrepareRequest($"products/{productId}/categories");
 
-            if (filter != null) req.QueryParams.AddRange(filter.ToParameters());
-
-            return await ExecuteRequestAsync<ProductCategoryLinkModel>(req, HttpMethod.Get, rootElement: "");
+            return await ExecuteRequestAsync<ProductCategoryLinkModelCollection>(req, HttpMethod.Get, rootElement: "");
         }
 
         /// <summary>
@@ -63,7 +60,7 @@ namespace StarwebSharp.Services.ProductCategoryLinks
         /// <returns>The new <see cref="ProductCategoryLinkModel" />.</returns>
         public virtual async Task<ProductCategoryLinkModel> CreateAsync(int productId, ProductCategoryLinkModel model)
         {
-            var req = PrepareRequest($"product/{productId}/categories");
+            var req = PrepareRequest($"products/{productId}/categories");
             var body = model.ToDictionary();
             var content = new JsonContent(body);
 

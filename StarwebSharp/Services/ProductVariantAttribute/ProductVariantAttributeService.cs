@@ -25,12 +25,9 @@ namespace StarwebSharp.Services.ProductVariantAttribute
         ///     Gets a list of product variants attributes. Max 100 per call.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<IEnumerable<ProductVariantAttributeModel>> ListAsync(int productId,
-            ProductVariantAttributeFilter filter = null)
+        public virtual async Task<IEnumerable<ProductVariantAttributeModel>> ListAsync()
         {
             var req = PrepareRequest("product-attributes");
-
-            if (filter != null) req.QueryParams.AddRange(filter.ToParameters());
 
             return await ExecuteRequestAsync<List<ProductVariantAttributeModel>>(req, HttpMethod.Get,
                 rootElement: "data");
@@ -41,16 +38,10 @@ namespace StarwebSharp.Services.ProductVariantAttribute
         ///     Retrieves the <see cref="ProductVariantAttributeModel" /> with the given id.
         /// </summary>
         /// <param name="attributeId">The attribute id of the product variant.</param>
-        /// <param name="include">
-        ///     If you want to include child data in the result. Example: ?include=prices (to include variants
-        ///     prices). Available includes: prices, attributes, attributes.attribute
-        /// </param>
         /// <returns>The <see cref="ProductVariantModel" />.</returns>
-        public virtual async Task<ProductVariantAttributeModel> GetAsync(int attributeId, string include = null)
+        public virtual async Task<ProductVariantAttributeModel> GetAsync(int attributeId)
         {
-            var req = PrepareRequest($"products-attributes/{attributeId}");
-            ;
-            if (!string.IsNullOrEmpty(include)) req.QueryParams.Add("include", include);
+            var req = PrepareRequest($"product-attributes/{attributeId}");
 
             return await ExecuteRequestAsync<ProductVariantAttributeModel>(req, HttpMethod.Get, rootElement: "data");
         }

@@ -27,15 +27,11 @@ namespace StarwebSharp.Services.ProductLanguage
         /// ///
         /// <param name="productId">The product Id of the product</param>
         /// <returns></returns>
-        public virtual async Task<IEnumerable<ProductLanguageModel>> ListAsync(int productId,
-            ProductLanguageFilter filter = null)
+        public virtual async Task<IEnumerable<ProductLanguageModelCollection>> ListAsync(int productId)
         {
             var req = PrepareRequest($"products/{productId}/languages");
 
-            if (filter != null) req.QueryParams.AddRange(filter.ToParameters());
-
-            return await ExecuteRequestAsync<List<ProductLanguageModel>>(req, HttpMethod.Get,
-                rootElement: "data");
+            return await ExecuteRequestAsync<List<ProductLanguageModelCollection>>(req, HttpMethod.Get, rootElement: "");
         }
 
 

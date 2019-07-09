@@ -57,17 +57,6 @@ namespace StarwebSharp.Entities
         [JsonProperty("statusId")]
         public int? StatusId { get; set; }
 
-        /// <summary>Set this to false to prevent sending email to customer on changes to statusId and new orders for a single call</summary>
-        [JsonProperty("onOrderStatusChangeSendEmail")]
-        public bool OnOrderStatusChangeSendEmail { get; set; } = true;
-
-        /// <summary>
-        ///     Set this to false to prevent processing payment on changes to statusId. Only applies to payment methods that
-        ///     support processing payments. For example charging a reserved amount or cancel a created invoice
-        /// </summary>
-        [JsonProperty("onOrderStatusChangeProcessPayment")]
-        public bool OnOrderStatusChangeProcessPayment { get; set; } = true;
-
         /// <summary>
         ///     Set this to false to prevent sending email to customer on changes to statusId and new orders for this and all
         ///     future calls
@@ -151,10 +140,6 @@ namespace StarwebSharp.Entities
         /// <summary>Same as amountPaid, but in the shops base currency</summary>
         [JsonProperty("amountPaidInBaseCurrency")]
         public double AmountPaidInBaseCurrency { get; set; }
-
-        /// <summary>Is the order completed (that is, is it completely saved and has the payment method processed and confirmed it)</summary>
-        [JsonProperty("isComplete")]
-        public bool IsComplete { get; set; }
 
         /// <summary>The currency code of the currency that was used for this order. Has to be a valid ISO 4217 currency code</summary>
         [JsonProperty("currencyCode")]

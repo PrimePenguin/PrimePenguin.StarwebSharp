@@ -66,6 +66,10 @@ namespace StarwebSharp.Entities
         public ICollection<int> AttributeValueLinks { get; set; } =
             new Collection<int>();
 
+        /// <summary>An array of pricelists IDs that will use inheritance</summary>
+        [JsonProperty("volumePricingInheritancePricelistIds")]
+        public ICollection<int> VolumePricingInheritancePricelistIds { get; set; }
+
         /// <summary>A collection of product variant prices</summary>
         [JsonProperty("prices")]
         public ProductVariantPriceModelCollection Prices { get; set; } =
