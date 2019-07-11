@@ -29,6 +29,6 @@ namespace StarwebSharp.Entities
 
         /// <summary>A collection of bundled product prices</summary>
         [JsonProperty("prices")]
-        public ICollection<ProductBundleProductPriceModel> Prices { get; set; }
+        public ProductBundleProductPriceModelCollection Prices { get; set; }
     }
 }

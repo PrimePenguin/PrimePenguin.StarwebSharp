@@ -11,7 +11,6 @@ namespace StarwebSharp.Entities
 
         /// <summary>The special price excluding vat (a discounted price)</summary>
         [JsonProperty("specialPriceExVat")]
-        [Range(0D, int.MaxValue)]
         public double? SpecialPriceExVat { get; set; }
     }
 }
