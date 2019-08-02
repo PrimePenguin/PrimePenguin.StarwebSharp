@@ -179,6 +179,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("isRead")]
         public bool IsRead { get; set; }
 
+        /// <summary>Is the order completed (that is, is it completely saved and has the payment method processed and confirmed it)</summary>
+        [JsonProperty("isComplete")]
+        public bool IsComplete { get; set; }
+
         /// <summary>Whether the customer or an admin has added a comment to the order</summary>
         [JsonProperty("hasComments")]
         public bool HasComments { get; set; }
