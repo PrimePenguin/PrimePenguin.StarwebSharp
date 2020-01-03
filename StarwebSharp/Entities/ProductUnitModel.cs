@@ -12,7 +12,7 @@ namespace StarwebSharp.Entities
 
         /// <summary>The external Id</summary>
         [JsonProperty("externalId")]
-        public int ExternalId { get; set; }
+        public string ExternalId { get; set; }
 
         [JsonProperty("languages")]
         public ProductUnitLanguageModelCollection Languages { get; set; }

@@ -13,7 +13,7 @@ namespace StarwebSharp.Entities
 
         /// <summary>The external id</summary>
         [JsonProperty("externalId")]
-        public int ExternalId { get; set; }
+        public string ExternalId { get; set; }
 
         /// <summary>The suggested suffix for new Variants using this attribute value</summary>
         [JsonProperty("skuSuffix")]

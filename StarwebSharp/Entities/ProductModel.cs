@@ -75,7 +75,7 @@ namespace StarwebSharp.Entities
         [JsonProperty("hasSeveralVariants")]
         public bool HasSeveralVariants { get; set; }
 
-        /// <summary>A timestamp of when the product was modified. Thfe time should be formatted using ISO-8601</summary>
+        /// <summary>A timestamp of when the product was modified. The time should be formatted using ISO-8601</summary>
         [JsonProperty("modifiedAt")]
         public string ModifiedAt { get; set; }
 
