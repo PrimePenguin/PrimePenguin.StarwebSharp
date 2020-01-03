@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -73,7 +75,7 @@ namespace StarwebSharp.Entities
         [JsonProperty("hasSeveralVariants")]
         public bool HasSeveralVariants { get; set; }
 
-        /// <summary>A timestamp of when the product was modified. The time should be formatted using ISO-8601</summary>
+        /// <summary>A timestamp of when the product was modified. Thfe time should be formatted using ISO-8601</summary>
         [JsonProperty("modifiedAt")]
         public string ModifiedAt { get; set; }
 
@@ -100,5 +102,8 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("metaData")]
         public ProductMetaDataModelCollection MetaData { get; set; }
+
+        [JsonProperty("visibilityPricelistIds")]
+        public ICollection<int> VisibilityPriceListIds { get; set; } = new Collection<int>();
     }
 }

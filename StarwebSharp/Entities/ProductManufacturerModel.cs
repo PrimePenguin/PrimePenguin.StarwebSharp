@@ -19,5 +19,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("url")]
         [StringLength(255)]
         public string Url { get; set; }
+
+        /// <summary>The external id of this manufacturer</summary>
+        [JsonProperty("externalId")]
+        [StringLength(255)]
+        public string ExternalId { get; set; }
     }
 }

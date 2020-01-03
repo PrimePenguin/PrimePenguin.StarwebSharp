@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using StarwebSharp.Entities;
@@ -71,5 +72,20 @@ namespace StarwebSharp.Services.Product
 
         [JsonProperty("metaData", NullValueHandling = NullValueHandling.Ignore)]
         public ICollection<ProductMetaDataModel> MetaData { get; set; }
+
+        [JsonProperty("createdAt")]
+        public string CreatedAt { get; set; }
+
+        [JsonProperty("visibilityPricelistIds")]
+        public ICollection<int> VisibilityPriceListIds { get; set; } = new Collection<int>();
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("bundleUseManualPrice")]
+        public bool BundleUseManualPrice { get; set; }
+
+        [JsonProperty("bundledProducts", NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<BundledProductsModel> BundledProducts { get; set; }
     }
 }

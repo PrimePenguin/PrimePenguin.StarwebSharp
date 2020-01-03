@@ -11,6 +11,10 @@ namespace StarwebSharp.Entities
         [JsonProperty("attributeValueId")]
         public int AttributeValueId { get; set; }
 
+        /// <summary>The external id</summary>
+        [JsonProperty("externalId")]
+        public int ExternalId { get; set; }
+
         /// <summary>The suggested suffix for new Variants using this attribute value</summary>
         [JsonProperty("skuSuffix")]
         public string SkuSuffix { get; set; }

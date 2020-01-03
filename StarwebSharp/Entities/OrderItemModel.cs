@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -56,6 +58,43 @@ namespace StarwebSharp.Entities
         /// <summary>The sort order of the order items</summary>
         [JsonProperty("sortIndex")]
         [Range(0, int.MaxValue)]
+        public int? SortIndex { get; set; }
+
+        [JsonProperty("bundledItems")]
+        public ICollection<OrderBundledItem> OrderBundledItems { get; set; } =
+            new List<OrderBundledItem>();
+    }
+
+    public class OrderBundledItem
+    {
+        [JsonProperty("itemId")]
+        public int? ItemId { get; set; }
+
+        [JsonProperty("sku")]
+        public string Sku { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("quantity")]
+        public int? Quantity { get; set; }
+
+        [JsonProperty("unitSymbol")]
+        public string UnitSymbol { get; set; }
+
+        [JsonProperty("unitPrice")]
+        public decimal? UnitPrice { get; set; }
+
+        [JsonProperty("vatRate")]
+        public int? VatRate { get; set; }
+
+        [JsonProperty("discount")]
+        public decimal? Discount { get; set; }
+
+        [JsonProperty("discountType")]
+        public OrderItemModelDiscountType DiscountType { get; set; }
+
+        [JsonProperty("sortIndex")]
         public int? SortIndex { get; set; }
     }
 }

@@ -10,6 +10,10 @@ namespace StarwebSharp.Entities
         [Range(1, int.MaxValue)]
         public int UnitId { get; set; }
 
+        /// <summary>The external Id</summary>
+        [JsonProperty("externalId")]
+        public int ExternalId { get; set; }
+
         [JsonProperty("languages")]
         public ProductUnitLanguageModelCollection Languages { get; set; }
     }
