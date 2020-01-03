@@ -25,5 +25,18 @@ namespace StarwebSharp.Entities
         [JsonProperty("permalink")]
         [StringLength(128)]
         public string Permalink { get; set; }
+
+        /// <summary>The products long description</summary>
+        [JsonProperty("longDescription")]
+        [StringLength(65535)]
+        public string LongDescription { get; set; }
+
+        /// <summary>Page title</summary>
+        [JsonProperty("pageTitle")]
+        public string PageTitle { get; set; }
+
+        /// <summary>Page meta description</summary>
+        [JsonProperty("pageMetaDescription")]
+        public string PageMetaDescription { get; set; }
     }
 }
