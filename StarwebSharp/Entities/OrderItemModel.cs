@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -61,8 +62,17 @@ namespace StarwebSharp.Entities
         public int? SortIndex { get; set; }
 
         [JsonProperty("bundledItems")]
-        public ICollection<OrderBundledItem> OrderBundledItems { get; set; } =
-            new List<OrderBundledItem>();
+        public OrderBundledItemModelCollection OrderBundledItems { get; set; } =
+            new OrderBundledItemModelCollection();
+    }
+
+
+    public class OrderBundledItemModelCollection
+    {
+        /// <summary>A collection of bundled items</summary>
+        [JsonProperty("data")]
+        public ICollection<OrderBundledItem> Data { get; set; } =
+            new Collection<OrderBundledItem>();
     }
 
     public class OrderBundledItem
