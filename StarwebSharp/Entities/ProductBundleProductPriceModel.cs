@@ -12,5 +12,11 @@ namespace StarwebSharp.Entities
         /// <summary>The special price excluding vat (a discounted price)</summary>
         [JsonProperty("specialPriceExVat")]
         public double? SpecialPriceExVat { get; set; }
+
+        /// <summary>
+        /// Bundled product price links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

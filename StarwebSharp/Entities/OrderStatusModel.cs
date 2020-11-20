@@ -18,5 +18,8 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("languages")]
         public OrderStatusLanguageModelCollection Languages { get; set; } = new OrderStatusLanguageModelCollection();
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

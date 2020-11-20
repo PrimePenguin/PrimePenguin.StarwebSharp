@@ -30,5 +30,8 @@ namespace StarwebSharp.Entities
         /// <summary>A collection of bundled product prices</summary>
         [JsonProperty("prices")]
         public ProductBundleProductPriceModelCollection Prices { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

@@ -24,5 +24,8 @@ namespace StarwebSharp.Entities
         [JsonProperty("externalId")]
         [StringLength(255)]
         public string ExternalId { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

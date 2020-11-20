@@ -11,5 +11,11 @@ namespace StarwebSharp.Entities
         /// <summary>The sort index this product have in the category</summary>
         [JsonProperty("sortIndex")]
         public int? SortIndex { get; set; }
+
+        /// <summary>
+        /// Product category links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

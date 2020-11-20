@@ -64,8 +64,13 @@ namespace StarwebSharp.Entities
         [JsonProperty("bundledItems")]
         public OrderBundledItemModelCollection OrderBundledItems { get; set; } =
             new OrderBundledItemModelCollection();
-    }
 
+        /// <summary>
+        /// Order item links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
+    }
 
     public class OrderBundledItemModelCollection
     {
@@ -106,5 +111,11 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("sortIndex")]
         public int? SortIndex { get; set; }
+
+        /// <summary>
+        /// Order item links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

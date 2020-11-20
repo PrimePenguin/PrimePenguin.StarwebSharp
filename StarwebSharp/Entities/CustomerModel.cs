@@ -76,5 +76,8 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("externalServices")]
         public CustomerExternalServicesModelCollection ExternalServices { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

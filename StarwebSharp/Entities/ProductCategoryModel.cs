@@ -36,9 +36,9 @@ namespace StarwebSharp.Entities
         public int? ImageFileId { get; set; }
 
         /// <summary>The system name the externalId belongs to.</summary>
-        [JsonProperty("externalType")]
+        [JsonProperty("externalIdType")]
         [StringLength(20)]
-        public string ExternalType { get; set; }
+        public string ExternalIdType { get; set; }
 
         /// <summary>The external Id for this category for the system named in externalType</summary>
         [JsonProperty("externalId")]
@@ -51,5 +51,8 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("languages")]
         public ProductCategoryLanguagesModelCollection Languages { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

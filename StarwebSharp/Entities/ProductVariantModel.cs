@@ -15,6 +15,12 @@ namespace StarwebSharp.Entities
         [StringLength(40)]
         public string Sku { get; set; }
 
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
+
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
+
         /// <summary>Is this variant active? Only active variants are visible to customers</summary>
         [JsonProperty("isActive")]
         public bool IsActive { get; set; } = true;
@@ -79,5 +85,8 @@ namespace StarwebSharp.Entities
         [JsonProperty("attributeValues")]
         public ProductVariantAttributeValueModelCollection AttributeValues { get; set; } =
             new ProductVariantAttributeValueModelCollection();
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

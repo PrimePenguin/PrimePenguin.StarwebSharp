@@ -11,9 +11,15 @@ namespace StarwebSharp.Entities
         [JsonProperty("attributeValueId")]
         public int AttributeValueId { get; set; }
 
-        /// <summary>The external id</summary>
+        /// <summary>The external id of this attribute value</summary>
         [JsonProperty("externalId")]
         public string ExternalId { get; set; }
+
+        /// <summary>
+        /// The external type of this attribute value, used to provide context for the externalId
+        /// </summary>
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
 
         /// <summary>The suggested suffix for new Variants using this attribute value</summary>
         [JsonProperty("skuSuffix")]
@@ -28,5 +34,11 @@ namespace StarwebSharp.Entities
         [JsonProperty("languages")]
         public ProductVariantAttributeValueLanguageModelCollection Languages { get; set; } =
             new ProductVariantAttributeValueLanguageModelCollection();
+        
+        /// <summary>
+        /// product attribute link
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

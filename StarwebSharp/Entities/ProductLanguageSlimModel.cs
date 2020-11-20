@@ -38,5 +38,11 @@ namespace StarwebSharp.Entities
         /// <summary>Page meta description</summary>
         [JsonProperty("pageMetaDescription")]
         public string PageMetaDescription { get; set; }
+
+        /// <summary>
+        /// Product language links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

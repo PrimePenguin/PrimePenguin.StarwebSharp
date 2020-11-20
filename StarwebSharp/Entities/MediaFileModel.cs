@@ -39,5 +39,8 @@ namespace StarwebSharp.Entities
         /// <summary>The media files URL</summary>
         [JsonProperty("url")]
         public string Url { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

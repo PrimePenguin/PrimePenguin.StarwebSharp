@@ -61,12 +61,18 @@ namespace StarwebSharp.Entities
 
         /// <summary>Should all bundled products have a manually entered price? Only applies if type is bundle</summary>
         [JsonProperty("bundleUseManualPrice")]
-        public bool BundleUseManualPrice { get; set; }
+        public bool? BundleUseManualPrice { get; set; }
 
         /// <summary>Account number for managing accounting on product level</summary>
         [JsonProperty("accounting")]
         [Range(100, 9999)]
         public int? Accounting { get; set; }
+
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
+
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
 
         /// <summary>
         ///     Indicates if the products has several variants or not. The remaining variants can be fetched using the
@@ -84,6 +90,9 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("bundledProducts")]
         public BundledProductsModelCollection BundledProducts { get; set; }
+
+        [JsonProperty("tags")]
+        public Tags Tags { get; set; }
 
         [JsonProperty("mediaFiles")]
         public ProductMediaFileLinkModelCollection MediaFiles { get; set; }
@@ -104,6 +113,30 @@ namespace StarwebSharp.Entities
         public ProductMetaDataModelCollection MetaData { get; set; }
 
         [JsonProperty("visibilityPricelistIds")]
-        public ICollection<int> VisibilityPriceListIds { get; set; } = new Collection<int>();
+        public ICollection<int?> VisibilityPriceListIds { get; set; } = new Collection<int?>();
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
+
+        [JsonProperty("data")]
+        public AttributesDatum[] Data { get; set; }
+    }
+
+    public partial class AttributesDatum
+    {
+        [JsonProperty("attributeId")]
+        public long AttributeId { get; set; }
+
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
+
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
+
+        [JsonProperty("languages")]
+        public Languages Languages { get; set; }
     }
 }

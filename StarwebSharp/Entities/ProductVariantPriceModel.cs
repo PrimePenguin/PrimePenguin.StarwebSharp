@@ -16,10 +16,19 @@ namespace StarwebSharp.Entities
         [Range(0.0D, int.MaxValue)]
         public double PriceExVat { get; set; }
 
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
+
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
+
         /// <summary>The special price excluding vat (a discounted price)</summary>
         [JsonProperty("specialPriceExVat")]
         [Range(0.0D, int.MaxValue)]
         public double? SpecialPriceExVat { get; set; }
+
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
 
         /// <summary>A collection of product variant volume prices</summary>
         [JsonProperty("volumePrices")]

@@ -22,5 +22,11 @@ namespace StarwebSharp.Entities
         /// <summary>The type of file this link points to. Can be either ”image” or ”document”</summary>
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Media file link
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

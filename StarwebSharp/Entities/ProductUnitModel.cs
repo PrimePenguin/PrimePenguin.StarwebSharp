@@ -14,7 +14,16 @@ namespace StarwebSharp.Entities
         [JsonProperty("externalId")]
         public string ExternalId { get; set; }
 
+        [JsonProperty("externalIdType")]
+        public string ExternalIdType { get; set; }
+
         [JsonProperty("languages")]
         public ProductUnitLanguageModelCollection Languages { get; set; }
+
+        /// <summary>
+        /// Product unit links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }

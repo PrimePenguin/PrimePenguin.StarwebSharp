@@ -78,7 +78,7 @@ namespace StarwebSharp.Entities
 
         /// <summary>Title of the orders payment method</summary>
         [JsonProperty("paymentMethodName")]
-        [StringLength(30)]
+        [StringLength(50)]
         public string PaymentMethodName { get; set; }
 
         /// <summary>Payment fee</summary>
@@ -237,5 +237,11 @@ namespace StarwebSharp.Entities
 
         [JsonProperty("status")]
         public OrderStatusModelItem Status { get; set; }
+
+        /// <summary>
+        /// Order Links
+        /// </summary>
+        [JsonProperty("links")]
+        public EntityLink[] Links { get; set; }
     }
 }
